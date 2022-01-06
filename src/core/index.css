@@ -1,0 +1,109 @@
+a.nav-link {
+    color: #000;
+}
+
+nav.navbar.navbar-expand-md.navbar-light.bg-light {
+    box-shadow: 0px 10px 20px 0px rgb(0 40 255 / 8%);
+    transition: border-radius 0.3s, box-shadow 0.3s;
+    z-index: 2;
+}
+
+.logo {
+    width: 10rem;
+    min-width: 30%;
+}
+
+button.navbar-toggler.collapsed {
+    margin-left: auto;
+}
+
+.navbar-brand {
+    margin-right: 0 !important;
+}
+
+/* HOME */
+.home-container {
+    /* height: calc(100vh - 8rem); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title {
+    color: #062D92;
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 1.2em;
+}
+.sub-title {
+    margin: 0px 0px 40px 0px;
+    font-family: "Open Sans", Sans-serif;
+}
+.button {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    line-height: 28px !important;
+    padding: 15px 60px 15px 60px !important;
+    margin: 0px 0px 70px 0px !important;
+}
+.button:hover {
+    transition: all .3s;
+    color: #FFFFFF;
+    background-color: #062D92 !important;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #062D92 !important;
+    border-radius: 0px 20px 0px 20px;
+}
+.header-cards {
+    box-shadow: 0px 0px 15px 0px rgb(0 40 255 / 13%);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin: 10px 10px 10px 10px;
+    padding: 40px 20px 20px 40px;
+    border-radius: 30px 0px 30px 0px !important;
+    padding: 20px 20px 20px 20px;
+}
+.header-cards:hover {
+    border-radius: 0px 20px 0px 20px !important;
+}
+.card-title {
+    color: #1B262C;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 1.25em !important;
+}
+.card-subtitle {
+    color: #52575D;
+    font-family: "Open Sans", Sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    line-height: 1.7em !important;
+}
+.home-card-container {
+    display: flex;
+    flex-direction: column;
+}
+.home-image-container {
+    background-color: #0028FF;
+    margin: 50px 0px 0px 50px;
+    padding: 0px 0px 30px 0px;
+    border-radius: 100px 0px 100px 0px;
+}
+.image-header-style {
+    width: 100%;
+    border-radius: 100px 0px 100px 0px;
+    margin: -30px 0px 0px -30px;
+}
+.home-card-arrow-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+
+@media (min-width: 768px) {
+    .home-card-container {
+        flex-direction: row;;
+    }
+}
