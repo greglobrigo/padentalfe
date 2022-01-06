@@ -1,0 +1,189 @@
+/* Book An Appointment */
+.home-container {
+    /* height: calc(100vh - 8rem); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.home-container-margin {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+.home-first-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title {
+    color: #062D92;
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 1.2em;
+}
+.sub-title {
+    margin: 0px 0px 40px 0px;
+    font-family: "Open Sans", Sans-serif;
+    font-size: 17px;
+    color: #52575D;
+}
+.button {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    line-height: 28px !important;
+    padding: 15px 60px 15px 60px !important;
+    margin: 0px 0px 70px 0px !important;
+    width: 70%;
+    border: none !important;
+    background: linear-gradient(
+90deg, rgba(90,175,196,1) 0%, rgba(232,232,244,1) 50%, rgba(78,180,81,1) 100%);
+    color: #062D92 !important;
+}
+.button:hover {
+    transition: all .3s;
+    color: #FFFFFF;
+    background-color: #062D92 !important;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #062D92 !important;
+    border-radius: 0px 20px 0px 20px;
+}
+.header-cards {
+    box-shadow: 0px 0px 15px 0px rgb(0 40 255 / 13%);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin: 10px 10px 10px 10px;
+    padding: 40px 20px 20px 40px;
+    border-radius: 30px 0px 30px 0px !important;
+    padding: 20px 20px 20px 20px;
+}
+.header-cards:hover {
+    border-radius: 0px 20px 0px 20px !important;
+}
+.card-title {
+    color: #1B262C;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 1.25em !important;
+}
+.card-subtitle {
+    color: #52575D;
+    font-family: "Open Sans", Sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    line-height: 1.7em !important;
+}
+.home-card-container {
+    display: flex;
+    flex-direction: column;
+}
+.home-image-container {
+    background-color: #5aafc4;
+    margin: 50px 0px 0px 50px;
+    padding: 0px 0px 30px 0px;
+    border-radius: 100px 0px 100px 0px;
+}
+.image-header-style {
+    width: 100%;
+    border-radius: 100px 0px 100px 0px;
+    margin: -30px 0px 0px -30px;
+}
+.home-card-arrow-btn {
+    position: absolute;
+    left: 30%;
+    bottom: -35px;
+    font-size: 3em;
+    /* height: 1em; */
+    color: rgba(78,180,81,1);
+}
+
+/***** Pulse *****/
+.home-card-arrow-btn.pulse:hover{ 
+    animation: pulse 1s infinite;
+    animation-timing-function: linear;  
+    cursor: pointer;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1)}
+    50% { transform: scale(1.1)}
+    100% { transform: scale(1)}
+  }
+/***** Pulse *****/
+
+@media (min-width: 768px) {
+    .home-card-container {
+        flex-direction: row;
+    }
+}
+
+
+
+/* Antiquera - Profession Clinic */
+.profession-clinic-header {
+    text-align: center;
+    line-height: 1.2em;
+    margin-bottom: 2rem;
+}
+
+.profession-clinic-title {
+    color: #062D92;
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.profession-clinic-subtitle {
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.profession-clinic-col-title {
+    color: #1B262C;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.4em;
+}
+.profession-clinic-img {
+    width: 100%;
+    box-shadow: 0px 0px 40px 0px rgb(0 40 255 / 17%)
+}
+
+.profession-clinic-mid-col {
+    position: relative;
+    z-index: 2;
+}
+
+
+@media (min-width: 768px) {
+    .profession-clinic-img.mid {
+        width: 110% !important;
+    }
+}
+
+
+/* Services */
+.services-card-container {
+    background-image: url(https://dentino.elipso.site/wp-content/uploads/sites/10/2020/08/professional-dentist-using-modern-technologies-in-treatment.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    /* padding: 350px 20px 40px 20px; */
+    border-radius: 0px 30px 0px 30px;
+}
+
+.services-second-bg-overlay {
+    position: relative;
+    background-color: transparent;
+    background-image: linear-gradient(190deg, #FFFFFF0D 45%, rgba(90,175,196,1) 80%);
+    border-radius: 0px 30px 0px 30px;
+    padding: 350px 20px 40px 20px;
+}
+.services-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25em;
+}
+.services-subtitle {
+    color: #F2F7FF;
+}

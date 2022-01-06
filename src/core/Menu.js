@@ -9,9 +9,9 @@ const isActive = (history, path) => {
     if(history.location.pathname === path) {
         return {
             color: "#fff",
-            background: 'blue',
+            background: 'rgba(78,180,81,1)',
             fontWeight: 'bold',
-            borderRadius: '5px',
+            borderRadius: '0px 20px 0px 20px',
             paddingLeft: '0.5rem'
         }
     } else return {paddingLeft: '0.5rem'}
@@ -23,7 +23,7 @@ const Menu = ({history}) => {
         <div>
             <Navbar bg="light" expand="md">
                 <Container fluid style={{gap: '0.3rem'}}>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/">
                         <img src={DentalLogo} alt="dental-clinic" className="logo"/>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
