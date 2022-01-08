@@ -11,7 +11,7 @@ const isActive = (history, path) => {
             color: "#fff",
             background: 'rgba(78,180,81,1)',
             fontWeight: 'bold',
-            borderRadius: '0px 20px 0px 20px',
+            borderRadius: '5px 20px 5px 20px',
             paddingLeft: '0.5rem'
         }
     } else return {paddingLeft: '0.5rem'}
@@ -32,6 +32,7 @@ const Menu = ({history}) => {
                         <Link className="nav-link" style={isActive(history, '/')} to="/">Home</Link>
                         <Link className="nav-link" style={isActive(history, '/patients')} to="/patients">Patients</Link>
                         <Link className="nav-link" style={isActive(history, '/services')} to="/services">Services</Link>
+                        <Link className="nav-link" style={isActive(history, '/transaction-history')} to="/transaction-history">Transaction History</Link>
                         <Link className="nav-link" style={isActive(history, '/signin')} to="/signin">Sign In</Link>
                         <Link className="nav-link" style={isActive(history, '/signup')} to="/signup">Sign Up</Link>
                     </Nav>

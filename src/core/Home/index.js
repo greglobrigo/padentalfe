@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useContext} from 'react'
 import DoctorImage from '../../images/doctor.jpg'
 import './index.css'
 import {IoIosArrowDroprightCircle} from 'react-icons/io'
@@ -6,15 +6,28 @@ import {Row,
     Col, 
     Button,
     Card} from 'react-bootstrap';
+import {AppContext} from '../../Global/AppContext';
+import BannerComponent from './Banner'
 import ProfessionClinicComponent from './ProfessionClinic'
 import ServicesComponent from './Services'
+import ClinicProtocolComponent from './ClinicProtocol'
+import ProcedureComponent from './Procedure'
+import DetailsComponent from './Details'
+import PopupComponent from '../Popup'
 
 
 
 const Home = () => {
+    const {setState} = useContext(AppContext)
+
+    useEffect(() => {
+        setState({modalShow: true})
+    }, [])
     
     return (
         <>
+            <PopupComponent />
+            <BannerComponent />
             <div className="container home-container home-container-margin">
                 <Row>
                     <Col className="home-first-section" xs={12} lg={6}>
@@ -48,6 +61,9 @@ const Home = () => {
             </div>
             <ProfessionClinicComponent />
             <ServicesComponent />
+            <ClinicProtocolComponent />
+            <ProcedureComponent />
+            <DetailsComponent />
         </>
     )
 }

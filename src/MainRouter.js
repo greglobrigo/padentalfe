@@ -2,6 +2,7 @@ import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import Home from './core/Home'
 import Menu from './core/Menu'
+import Footer from './core/Footer'
 
 
 
@@ -16,6 +17,7 @@ const MainRouter = () => {
                 <Route exact path="/signin" component={Signin} />
                 <PrivateRoute exact path="/post/create" component={NewPost} /> */}
             </Switch>
+            <Footer />
         </div>
     )
 }
