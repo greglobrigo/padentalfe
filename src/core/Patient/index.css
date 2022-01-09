@@ -1,0 +1,46 @@
+
+
+/*  */
+.desktop-patient-component {
+    display: none;
+}
+.action-btns-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.mobile-view-patient-details-container {
+    background-color: rgba(90, 175, 196, 0.5) !important;
+    box-shadow: 4px 4px 8px #000000;
+}
+.mobile-view-patient-details-icon {
+    padding: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border-radius: 2px;
+    margin-right: 0.2rem;
+}
+.patient-list-container {}
+.loading-container {
+    background: rgba(78, 180, 81, 0.5);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 6rem;
+    margin: auto;
+    border-radius: 100%;
+}
+
+
+@media (min-width: 768px) {
+    .mobile-patient-component {
+        display: none;
+    }
+    .desktop-patient-component {
+        display: block;
+    }
+}

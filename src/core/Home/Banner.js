@@ -68,7 +68,7 @@ const Banner = () => {
       };
 
     return (
-        <div style={{background: '#000'}}>
+        <div style={{background: '#000', paddingTop: '6.1rem'}}>
             {/* <div className="style-overlay"></div> */}
             <Slider {...settings}>
                 <div>

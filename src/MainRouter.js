@@ -1,6 +1,7 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import Home from './core/Home'
+import Patients from './core/Patient'
 import Menu from './core/Menu'
 import Footer from './core/Footer'
 
@@ -12,6 +13,7 @@ const MainRouter = () => {
             <Menu />
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/patients" component={Patients} />
                 {/* <Route exact path="/users" component={Users} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/signin" component={Signin} />

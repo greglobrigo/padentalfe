@@ -17,6 +17,9 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light {
     transition: border-radius 0.3s, box-shadow 0.3s;
     z-index: 2;
     padding: 1.5rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 .logo {

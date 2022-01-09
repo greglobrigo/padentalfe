@@ -250,7 +250,7 @@
 
 .profession-clinic-mid-col {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   margin-bottom: 1rem;
 }
 
@@ -334,7 +334,7 @@
 /* Clinic Protocol */
 .clinic-protocol-main {
   position: relative;
-  z-index: 99;
+  z-index: 1;
   height: 100vh;
   display: flex;
   flex-direction: column;
