@@ -12,7 +12,7 @@ const DetailsComponent = () => {
         <div className="details-container">
             <div className="container home-container-margin">
                 <Row>
-                    <Col>
+                    <Col md={6}>
                         <div className="details-first-col">
                             <img src={DentalLogo} alt="logo" className="details-dental-logo" />
                             <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
@@ -48,7 +48,7 @@ const DetailsComponent = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                    <Col md={6} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                         <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
                         <Button variant="primary" className="button">Make an Appointment</Button>
                         <Row>

@@ -17,7 +17,6 @@ const MobileViewPatientListComponent = ({PatientsList, handleShowModal}) => {
     const notify = () => toast("Wow so easy!");
 
 
-
     return (
         <div className="container mt-5 mb-5" >
             <InfiniteScroll
@@ -25,12 +24,12 @@ const MobileViewPatientListComponent = ({PatientsList, handleShowModal}) => {
                 dataLength={PatientsList.length} 
                 next={() => setPage(page + 1)}
                 hasMore={true}
-                loader={
-                    <div className="loading-container">
-                        <img src={Gif_loading} alt="loading" style={{width: '100%'}}/>
-                        <h6 style={{fontWeight: 'bold'}}>Loading</h6>
-                    </div>
-                }
+                // loader={
+                //     <div className="loading-container">
+                //         <img src={Gif_loading} alt="loading" style={{width: '100%'}}/>
+                //         <h6 style={{fontWeight: 'bold'}}>Loading</h6>
+                //     </div>
+                // }
             >
                 {PatientsList.map((patient, index) => {
                     return (
@@ -51,36 +50,36 @@ const MobileViewPatientListComponent = ({PatientsList, handleShowModal}) => {
                                     <BsFillTelephoneFill className="mobile-view-patient-details-icon" />Phone Number: {patient.phone_num}
                                 </Card.Text>
                                 <div className="action-btns-container">
-                                <OverlayTrigger
-                                    placement='bottom'
-                                    overlay={
-                                        <Tooltip id={`tooltip-bottom`}>
-                                            {`Show ${patient.name}'s details`}
-                                        </Tooltip>
-                                    }
-                                >
-                                    <Button variant="info" onClick={() => handleShowModal('view-details', patient)}><BiDetail /></Button>
-                                </OverlayTrigger>
-                                <OverlayTrigger
-                                    placement='bottom'
-                                    overlay={
-                                        <Tooltip id={`tooltip-bottom`}>
-                                            {`Edit ${patient.name}'s details`}
-                                        </Tooltip>
-                                    }
-                                >
-                                    <Button variant="secondary"  onClick={() => handleShowModal('edit-details', patient)}><BiEdit /></Button>
-                                </OverlayTrigger>
-                                <OverlayTrigger
-                                    placement='bottom'
-                                    overlay={
-                                        <Tooltip id={`tooltip-bottom`}>
-                                            {`Delete ${patient.name}'s details`}
-                                        </Tooltip>
-                                    }
-                                >
-                                    <Button variant="danger" onClick={() => handleShowModal('delete-details')}><RiDeleteBin2Line /></Button>
-                                </OverlayTrigger>
+                                    <OverlayTrigger
+                                        placement='bottom'
+                                        overlay={
+                                            <Tooltip id={`tooltip-bottom`}>
+                                                {`Show ${patient.name}'s details`}
+                                            </Tooltip>
+                                        }
+                                    >
+                                        <Button variant="info" onClick={() => handleShowModal('view-details', patient)}><BiDetail /></Button>
+                                    </OverlayTrigger>
+                                    <OverlayTrigger
+                                        placement='bottom'
+                                        overlay={
+                                            <Tooltip id={`tooltip-bottom`}>
+                                                {`Edit ${patient.name}'s details`}
+                                            </Tooltip>
+                                        }
+                                    >
+                                        <Button variant="secondary"  onClick={() => handleShowModal('edit-details', patient)}><BiEdit /></Button>
+                                    </OverlayTrigger>
+                                    {/* <OverlayTrigger
+                                        placement='bottom'
+                                        overlay={
+                                            <Tooltip id={`tooltip-bottom`}>
+                                                {`Delete ${patient.name}'s details`}
+                                            </Tooltip>
+                                        }
+                                    >
+                                        <Button variant="danger" onClick={() => handleShowModal('delete-details')}><RiDeleteBin2Line /></Button>
+                                    </OverlayTrigger> */}
                                 </div>
                             </Card.Body>
                         </Card>

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect, useContext} from 'react'
 import './index.css'
 import {Link, withRouter} from 'react-router-dom'
 import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
 import DentalLogo from '../images/dental_logo1.png'
+import { signout, isAuthenticated } from '../auth'
 
 
 const isActive = (history, path) => {
@@ -19,6 +20,8 @@ const isActive = (history, path) => {
 
 
 const Menu = ({history}) => {
+   
+
     return (
         <div>
             <Navbar bg="light" expand="md">
@@ -28,13 +31,25 @@ const Menu = ({history}) => {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto" style={{width: '100%'}}>
                         <Link className="nav-link" style={isActive(history, '/')} to="/">Home</Link>
-                        <Link className="nav-link" style={isActive(history, '/patients')} to="/patients">Patients</Link>
+                        <Link className="nav-link" style={isActive(history, '/users')} to="/users">Users</Link>
                         <Link className="nav-link" style={isActive(history, '/services')} to="/services">Services</Link>
+                        <Link className="nav-link" style={isActive(history, '/appointments')} to="/appointments">Appointments</Link>
                         <Link className="nav-link" style={isActive(history, '/transaction-history')} to="/transaction-history">Transaction History</Link>
-                        <Link className="nav-link" style={isActive(history, '/signin')} to="/signin">Sign In</Link>
-                        <Link className="nav-link" style={isActive(history, '/signup')} to="/signup">Sign Up</Link>
+                        {isAuthenticated() ?
+                        <div className="accounts">
+                            {/* <Link className="nav-link" style={isActive(history, '/signout')} to="/signin">Sign out</Link> */}
+                            <span className="nav-link" style={isActive(history, '/signup'), {cursor: 'pointer'}} onClick={() => signout(() => history.push('/'))}>Sign Out</span>
+                        </div>
+                        :
+                        <>
+                            <div className="accounts">
+                                <Link className="nav-link" style={isActive(history, '/signin')} to="/signin">Sign In</Link>
+                                <Link className="nav-link" style={isActive(history, '/signup')} to="/signup">Register</Link>
+                            </div>
+                        </> 
+                        }
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

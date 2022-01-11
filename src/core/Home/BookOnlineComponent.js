@@ -8,7 +8,7 @@ const BookOnlineComponent = () => {
         <div className="container home-container home-container-margin">
                 <Row>
                     <Col className="home-first-section" xs={12} lg={6}>
-                        <h1 class="title">Book online</h1>
+                        <h1 className="title">Book online</h1>
                         <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
                         <Button variant="primary" className="button">Make an Appointment</Button>
 

@@ -3,7 +3,13 @@ export const AppContext = React.createContext();
 
 const AppProvider = (props) => {
     const [state, setState] = useState({
-        modalShow: false
+        modalShow: false,
+        appointments: [],
+        title: '',
+        action: '',
+        btnColor: '',
+        loading: false,
+        data: ''
     });
 
     const initState = {
