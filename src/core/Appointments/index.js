@@ -2,11 +2,13 @@ import React, {useEffect, useContext, useState} from 'react'
 import './index.css'
 import DesktopViewPatientList from './DesktopViewPatientList'
 import {AppContext} from '../../Global/AppContext';
-import {appointmentList, approvedAppointmentList} from '../Admin/apiAdmin'
+import {appointmentList, approvedAppointmentList} from '../api/api'
 import Gif_loading from '../../images/gif_loading.gif'
 import ValidationModalComponent from '../ValidationModal'
 import {Dropdown} from 'react-bootstrap'
 import MobileViewPatientComponent from './MobileViewPatientList'
+import {isAuthenticated} from '../../auth'
+
 
 
 
@@ -14,9 +16,10 @@ const AppointmentsComponent = (props) => {
     const {state, setState} = useContext(AppContext)
     const [selectedValue, setSelectedValue] = useState('')
 
+
     useEffect(() => {
         setState({loading: true})
-        appointmentList('all')
+        appointmentList('all', isAuthenticated())
         .then(data => {
             console.log(data.appointments)
             if(data.status === "FAILED") {
@@ -26,7 +29,7 @@ const AppointmentsComponent = (props) => {
             } else return setState({...state, appointments: data.appointments, loading: false})
         })
 
-        approvedAppointmentList('all')
+        approvedAppointmentList('all', isAuthenticated())
         .then(data => {
             console.log(data.appointments)
             if(data.status === "FAILED") {
@@ -74,7 +77,7 @@ const AppointmentsComponent = (props) => {
     const handleSelectedValue = (e) => {
         setState({...state, loading: true})
         setSelectedValue(e.target.value)
-        appointmentList(e.target.value)
+        appointmentList(e.target.value, isAuthenticated())
         .then(data => {
             if(data.status === "FAILED") {
                 return (
@@ -83,7 +86,7 @@ const AppointmentsComponent = (props) => {
             } else return setState({...state, appointments: data.appointments, loading: false})
         })
 
-        approvedAppointmentList(e.target.value)
+        approvedAppointmentList(e.target.value, isAuthenticated())
         .then(data => {
             if(data.status === "FAILED") {
                 return (
@@ -105,17 +108,6 @@ const AppointmentsComponent = (props) => {
                     :
                     <>
                         <div className="desktop-patient-component">
-                            {/* <Dropdown style={{display: 'flex', justifyContent: 'flex-end'}}>
-                                <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                    Dropdown Button
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    <Dropdown.Item>Action</Dropdown.Item>
-                                    <Dropdown.Item>Another action</Dropdown.Item>
-                                    <Dropdown.Item>Something else</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown> */}
                             <select className="select-appointments" value={selectedValue} onChange={(e) => handleSelectedValue(e)}>
                                 <option value="all">All</option>
                                 <option value="today">Today</option>
@@ -131,8 +123,6 @@ const AppointmentsComponent = (props) => {
                     </>
                 }
                
-
-
                     <ValidationModalComponent 
                         show={state.modalShow} 
                         action={state.action}

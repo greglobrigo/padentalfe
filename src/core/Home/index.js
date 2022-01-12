@@ -9,7 +9,9 @@ import ProcedureComponent from './Procedure'
 import DetailsComponent from './Details'
 import PopupComponent from '../Popup'
 import BookOnlineComponent from './BookOnlineComponent'
-import {appointmentList, approvedAppointmentList} from '../Admin/apiAdmin'
+import {appointmentList, approvedAppointmentList} from '../api/api'
+import {isAuthenticated} from '../../auth'
+
 
 
 
@@ -17,7 +19,7 @@ const Home = () => {
     const {state, setState} = useContext(AppContext)
 
     useEffect(() => {
-        appointmentList('all')
+        appointmentList('all', isAuthenticated())
         .then(data => {
             if(data.status === "FAILED") {
                 return (
@@ -27,7 +29,7 @@ const Home = () => {
             else return setState({...state, appointments: data.appointments, loading: false})
         })
         
-        approvedAppointmentList('all')
+        approvedAppointmentList('all', isAuthenticated())
         .then(data => {
             if(data.status === "FAILED") {
                 return (

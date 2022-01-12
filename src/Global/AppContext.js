@@ -12,7 +12,6 @@ const AppProvider = (props) => {
         loading: false,
         data: '',
         appointmentsUser: '',
-        approvedAppointmentsUser: ''
     });
 
     const initState = {
