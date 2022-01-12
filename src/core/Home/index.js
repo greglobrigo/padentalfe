@@ -9,15 +9,35 @@ import ProcedureComponent from './Procedure'
 import DetailsComponent from './Details'
 import PopupComponent from '../Popup'
 import BookOnlineComponent from './BookOnlineComponent'
+import {appointmentList, approvedAppointmentList} from '../Admin/apiAdmin'
 
 
 
 const Home = () => {
-    const {setState} = useContext(AppContext)
+    const {state, setState} = useContext(AppContext)
 
     useEffect(() => {
-        setState({modalShow: true})
+        appointmentList('all')
+        .then(data => {
+            if(data.status === "FAILED") {
+                return (
+                    setState({error: data.status})
+                )
+            } 
+            else return setState({...state, appointments: data.appointments, loading: false})
+        })
+        
+        approvedAppointmentList('all')
+        .then(data => {
+            if(data.status === "FAILED") {
+                return (
+                    setState({error: data.status})
+                )
+            } else return setState({...state, approvedAppointments: data.appointments, loading: false})
+        })
     }, [])
+
+    console.log({state})
     
     return (
         <>

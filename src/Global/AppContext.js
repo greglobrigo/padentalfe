@@ -5,11 +5,14 @@ const AppProvider = (props) => {
     const [state, setState] = useState({
         modalShow: false,
         appointments: [],
+        approvedAppointments: [],
         title: '',
         action: '',
         btnColor: '',
         loading: false,
-        data: ''
+        data: '',
+        appointmentsUser: '',
+        approvedAppointmentsUser: ''
     });
 
     const initState = {

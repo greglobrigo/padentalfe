@@ -31,32 +31,52 @@ const ValidationModalComponent = (props) => {
         <Modal.Body>
             {(props.action === 'view') && 
                 <>
-                    <p>Name: {props.data.patient_name}</p>
-                    <p>Age: {props.data.age}</p>
-                    <p>Address: {props.data.address}</p>
-                    <p>Contact no.: {props.data.contact_number}</p>
-                    <p>Work: {props.data.work}</p>
-                    <p>Status: {props.data.status}</p>
-                    <p>Preferred Date: <Moment format="MM/DD/YY">{props.data.preferred_data}</Moment></p>
-                    <p>Preferred Time: <Moment format="LT">{props.data.preferred_time}</Moment></p>
-                    <p>1. INUUBO KA BA?(Do you have cough?): {props.data.have_cough?.toString() === true ? 'Yes' : 'No'}</p>
-                    <p>2. MAY SIPON KA BA?(Do you have colds?): {props.data.have_colds?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>3. NAGTATAE KA BA?(Are you having Diarrhea?): {props.data.have_diarrhea?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>4. MASAKIT BA ANG LALAMUNAN MO?(Do you have sore throat?): {props.data.have_sorethroat?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>5. MASAKIT BA KATAWAN MO? (Are you experiencing MYALAGIA?): {props.data.have_bodyache?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>6. MASAKIT BA ULO MO? (Do you have headache?): {props.data.have_headache?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>7. MAY LAGNAT KA BA? (Do you have fever-temperature 37.8c and above?): {props.data.have_hightemp?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>8. NAHIHIRAPAN KA BA HUMINGA? (Are you having difficulty breathing?): {props.data.have_difficultbreathing?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>9. NANGHIHINA KA BA PALAGI? (Are you experiencing fatigue?): {props.data.have_fatigue?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>10. MAY TRAVEL HISTORY KA BA? (Have you traveled recently during the past 14 days?): {props.data.have_travelledPast14days?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>11. NANGGALING KA BA SA LUGAR NA MAY POSITIVE COVID-19 CASE? (Do you have a travel history to COVID-19 infected area?): {props.data.have_travelledWhereCovid?.toString()  === true ? 'Yes' : 'No'}</p>
-                    <p>12. MAY DIRECT CONTACT KA BA SA TAONG POSITIVE SA COVID-19? (Do you have direct contact or is taking care of a positive COVID-19 patient?): {props.data.have_vicinityWhereCovid?.toString()  === true ? 'Yes' : 'No'}</p>
+                    <h6>Name:</h6>
+                    <Form.Control className="appointment-form-label" type="text" placeholder={props.data.patient_name} readOnly />
+                    <h6>Age:</h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.age} readOnly />
+                    <h6>Address:</h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.address} readOnly />
+                    <h6>Contact no.:</h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.contact_number} readOnly />
+                    <h6>Work:</h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.work} readOnly />
+                    <h6>Status:</h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.status} readOnly />
+                    <h6>Preferred Date:</h6>
+                    <div className="appointment-form-label time-n-date">{<Moment format="MM/DD/YY">{props.data.preferred_data}</Moment>} </div>
+                    <h6>Preferred Time: </h6>
+                    <div className="appointment-form-label time-n-date"> {<Moment format="LT">{props.data.preferred_time}</Moment>}</div>
+                    <h6>1. INUUBO KA BA?(Do you have cough?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_cough?.toString() === true ? 'Yes' : 'No'} readOnly />
+                    <h6>2. MAY SIPON KA BA?(Do you have colds?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_colds?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>3. NAGTATAE KA BA?(Are you having Diarrhea?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_diarrhea?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>4. MASAKIT BA ANG LALAMUNAN MO?(Do you have sore throat?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_sorethroat?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>5. MASAKIT BA KATAWAN MO? (Are you experiencing MYALAGIA?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_bodyache?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>6. MASAKIT BA ULO MO? (Do you have headache?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_headache?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>7. MAY LAGNAT KA BA? (Do you have fever-temperature 37.8c and above?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_hightemp?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>8. NAHIHIRAPAN KA BA HUMINGA? (Are you having difficulty breathing?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_difficultbreathing?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>9. NANGHIHINA KA BA PALAGI? (Are you experiencing fatigue?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_fatigue?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>10. MAY TRAVEL HISTORY KA BA? (Have you traveled recently during the past 14 days?):</h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_travelledPast14days?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>11. NANGGALING KA BA SA LUGAR NA MAY POSITIVE COVID-19 CASE? (Do you have a travel history to COVID-19 infected area?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_travelledWhereCovid?.toString()  === true ? 'Yes' : 'No'} readOnly />
+                    <h6>12. MAY DIRECT CONTACT KA BA SA TAONG POSITIVE SA COVID-19? (Do you have direct contact or is taking care of a positive COVID-19 patient?): </h6>
+                    <Form.Control className="appointment-form-label" type="text" value={props.data.have_vicinityWhereCovid?.toString()  === true ? 'Yes' : 'No'} readOnly />
                 </>
             }
         </Modal.Body>
         {props.action !== 'edit' && 
             <Modal.Footer>
-                <Button variant={props.btncolor} onClick={() => console.log('Confirm')}>Confirm</Button>
+                {/* <Button variant={props.btncolor} onClick={() => console.log('Confirm')}>Confirm</Button> */}
                 <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>
         }

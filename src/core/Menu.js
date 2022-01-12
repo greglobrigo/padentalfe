@@ -1,7 +1,7 @@
-import React, {useEffect, useContext} from 'react'
+import React from 'react'
 import './index.css'
 import {Link, withRouter} from 'react-router-dom'
-import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
+import {Navbar, Container, Nav} from 'react-bootstrap'
 import DentalLogo from '../images/dental_logo1.png'
 import { signout, isAuthenticated } from '../auth'
 
@@ -20,8 +20,8 @@ const isActive = (history, path) => {
 
 
 const Menu = ({history}) => {
-   
 
+    console.log(isAuthenticated())
     return (
         <div>
             <Navbar bg="light" expand="md">
@@ -36,7 +36,8 @@ const Menu = ({history}) => {
                         <Link className="nav-link" style={isActive(history, '/users')} to="/users">Users</Link>
                         <Link className="nav-link" style={isActive(history, '/services')} to="/services">Services</Link>
                         <Link className="nav-link" style={isActive(history, '/appointments')} to="/appointments">Appointments</Link>
-                        <Link className="nav-link" style={isActive(history, '/transaction-history')} to="/transaction-history">Transaction History</Link>
+                        {!isAuthenticated().admin_email &&<Link className="nav-link" style={isActive(history, '/transaction-history')} to="/transaction-history">Transaction History</Link>}
+                        {!isAuthenticated().admin_email && <Link className="nav-link" style={isActive(history, '/appointment-history')} to="/appointment-history">Appointment History</Link>}
                         {isAuthenticated() ?
                         <div className="accounts">
                             {/* <Link className="nav-link" style={isActive(history, '/signout')} to="/signin">Sign out</Link> */}
