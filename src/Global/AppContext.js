@@ -6,12 +6,15 @@ const AppProvider = (props) => {
         modalShow: false,
         appointments: [],
         approvedAppointments: [],
+        historyAppointments: [],
         title: '',
         action: '',
         btnColor: '',
         loading: false,
         data: '',
         appointmentsUser: '',
+        appointmentTabs: 0,
+        schedule: 'all'
     });
 
     const initState = {

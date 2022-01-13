@@ -11,7 +11,7 @@ export const appointmentList = (value, user) => {
         .catch(err => {
             console.log(err)
         })
-    } else {
+    } else if(isAuthenticated().patient_email) {
         return fetch(`${process.env.REACT_APP_API_URL}/api/v1/patients/appointments?dateRange=${value}`, {
             method: "GET",
             'Content-type': 'application/json',
@@ -40,7 +40,7 @@ export const approvedAppointmentList = (value, user) => {
         .catch(err => {
             console.log(err)
         })
-    } else {
+    } else if(isAuthenticated().patient_email) {
         return fetch(`${process.env.REACT_APP_API_URL}/api/v1/patients/appointments/approved?dateRange=${value}`, {
             method: "GET",
             'Content-type': 'application/json',
@@ -56,4 +56,22 @@ export const approvedAppointmentList = (value, user) => {
             console.log(err)
         })
     }
+}
+
+
+export const appointmentHistoryList = (value, user) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/v1/patients/appointments?dateRange=${value}`, {
+        method: "GET",
+        'Content-type': 'application/json',
+        headers: {
+            'userToken': user.userToken,
+            'authToken': user.authToken,
+        }
+    })
+    .then(response => {
+        return response.json()
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }

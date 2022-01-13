@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, OverlayTrigger, Tooltip, Table } from 'react-bootstrap';
 import Moment from 'react-moment';
 import {BiDetail, BiEdit} from 'react-icons/bi'
+import {isAuthenticated} from '../../auth'
 
 
 
@@ -10,10 +11,10 @@ const ApprovedAppointment = ({state, handleShowModal}) => {
         <Table striped bordered hover className="container">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Address</th>
-                        <th>Phone Number</th>
+                        {isAuthenticated().admin_email && <th>Name</th>}
+                        {isAuthenticated().admin_email && <th>Age</th>}
+                        {isAuthenticated().admin_email && <th>Address</th>}
+                        {isAuthenticated().admin_email && <th>Phone Number</th>}
                         <th>Schedule</th>
                         <th>Action</th>
                     </tr>
@@ -22,10 +23,10 @@ const ApprovedAppointment = ({state, handleShowModal}) => {
                     {state?.approvedAppointments.map((appointment, index) => {
                         return (
                             <tr key={index}>
-                                <td>{appointment.patient_name}</td>
-                                <td>{appointment.age}</td>
-                                <td>{appointment.address}</td>
-                                <td>{appointment.contact_number}</td>
+                                {isAuthenticated().admin_email && <td>{appointment.patient_name}</td>}
+                                {isAuthenticated().admin_email && <td>{appointment.age}</td>}
+                                {isAuthenticated().admin_email && <td>{appointment.address}</td>}
+                                {isAuthenticated().admin_email && <td>{appointment.contact_number}</td>}
                                 <td>{(appointment.preferred_date && appointment.preferred_time) ? <><Moment format="MM/DD/YY">{appointment.preferred_date}</Moment> - <Moment format="LT">{appointment.preferred_time}</Moment></> : ''}</td>
                                 <td>
                                     <div className="action-btns-container">

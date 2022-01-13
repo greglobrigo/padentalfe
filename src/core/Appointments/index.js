@@ -2,7 +2,7 @@ import React, {useEffect, useContext, useState} from 'react'
 import './index.css'
 import DesktopViewPatientList from './DesktopViewPatientList'
 import {AppContext} from '../../Global/AppContext';
-import {appointmentList, approvedAppointmentList} from '../api/api'
+import {appointmentList, approvedAppointmentList, appointmentHistoryList} from '../api/api'
 import Gif_loading from '../../images/gif_loading.gif'
 import ValidationModalComponent from '../ValidationModal'
 import {Dropdown} from 'react-bootstrap'
@@ -14,14 +14,13 @@ import {isAuthenticated} from '../../auth'
 
 const AppointmentsComponent = (props) => {
     const {state, setState} = useContext(AppContext)
-    const [selectedValue, setSelectedValue] = useState('')
 
 
     useEffect(() => {
         setState({loading: true})
         appointmentList('all', isAuthenticated())
         .then(data => {
-            console.log(data.appointments)
+            console.log(`All`, data.appointments)
             if(data.status === "FAILED") {
                 return (
                     setState({error: data.status})
@@ -31,12 +30,23 @@ const AppointmentsComponent = (props) => {
 
         approvedAppointmentList('all', isAuthenticated())
         .then(data => {
-            console.log(data.appointments)
+            console.log(`Approved`, data.appointments)
             if(data.status === "FAILED") {
                 return (
                     setState({error: data.status})
                 )
             } else return setState({...state, approvedAppointments: data.appointments, loading: false})
+        })
+
+        appointmentHistoryList('all', isAuthenticated())
+        .then(data => {
+            console.log(`History dataaaa`, data)
+            console.log(`History`, data.appointments)
+            if(data.status === "FAILED") {
+                return (
+                    setState({error: data.status})
+                )
+            } else return setState({...state, historyAppointments: data.appointments, loading: false})
         })
     }, [])
 
@@ -74,28 +84,6 @@ const AppointmentsComponent = (props) => {
         }
     }
 
-    const handleSelectedValue = (e) => {
-        setState({...state, loading: true})
-        setSelectedValue(e.target.value)
-        appointmentList(e.target.value, isAuthenticated())
-        .then(data => {
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } else return setState({...state, appointments: data.appointments, loading: false})
-        })
-
-        approvedAppointmentList(e.target.value, isAuthenticated())
-        .then(data => {
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } else return setState({...state, approvedAppointments: data.appointments, loading: false})
-        })
-    }
-
 
     return (
         <>
@@ -107,19 +95,13 @@ const AppointmentsComponent = (props) => {
                     </div>
                     :
                     <>
+                        <h1>Appointments</h1>
                         <div className="desktop-patient-component">
-                            <select className="select-appointments" value={selectedValue} onChange={(e) => handleSelectedValue(e)}>
-                                <option value="all">All</option>
-                                <option value="today">Today</option>
-                                <option value="week">Week</option>
-                                <option value="2weeks">2 Weeks</option>
-                                <option value="month">Month</option>
-                            </select>
-                            <DesktopViewPatientList state={state} handleShowModal={handleShowModal} /> 
+                            <DesktopViewPatientList state={state} handleShowModal={handleShowModal} setState={setState} /> 
                         </div>
-                        <div className="mobile-patient-component">
+                        {/* <div className="mobile-patient-component">
                             <MobileViewPatientComponent state={state} handleShowModal={handleShowModal} /> 
-                        </div>
+                        </div> */}
                     </>
                 }
                

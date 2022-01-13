@@ -19,27 +19,26 @@ const Home = () => {
     const {state, setState} = useContext(AppContext)
 
     useEffect(() => {
-        appointmentList('all', isAuthenticated())
-        .then(data => {
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } 
-            else return setState({...state, appointments: data.appointments, loading: false})
-        })
+        // appointmentList('all', isAuthenticated())
+        // .then(data => {
+        //     if(data.status === "FAILED") {
+        //         return (
+        //             setState({error: data.status})
+        //         )
+        //     } 
+        //     else return setState({...state, appointments: data.appointments, loading: false})
+        // })
         
-        approvedAppointmentList('all', isAuthenticated())
-        .then(data => {
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } else return setState({...state, approvedAppointments: data.appointments, loading: false})
-        })
+        // approvedAppointmentList('all', isAuthenticated())
+        // .then(data => {
+        //     if(data.status === "FAILED") {
+        //         return (
+        //             setState({error: data.status})
+        //         )
+        //     } else return setState({...state, approvedAppointments: data.appointments, loading: false})
+        // })
     }, [])
 
-    console.log({state})
     
     return (
         <>

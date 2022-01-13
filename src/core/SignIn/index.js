@@ -59,6 +59,7 @@ const SignInComponent = () => {
                 height: 'calc(100vh - 6rem)'
             }}>
 
+            <h1>{location.pathname === '/admin' ? 'Admin' : ''}</h1>
             <h2 className="mt-5 mb-5">Signin</h2>
 
             <div className="alert alert-danger" style={{display: state.error ? '' : "none"}}>

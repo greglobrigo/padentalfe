@@ -4,11 +4,7 @@ import Moment from 'react-moment';
 import {BiDetail, BiEdit} from 'react-icons/bi'
 import {isAuthenticated} from '../../auth'
 
-
-
-
-const AllAppointmentsComponent = ({state, handleShowModal}) => {
-    console.log(isAuthenticated())
+const HistoryAppointments = ({state, handleShowModal}) => {
     return (
         <Table striped bordered hover className="container">
                 <thead>
@@ -22,7 +18,7 @@ const AllAppointmentsComponent = ({state, handleShowModal}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {state?.appointments.map((appointment, index) => {
+                    {state?.historyAppointments.map((appointment, index) => {
                         return (
                             <tr key={index}>
                                 {isAuthenticated().admin_email && <td>{appointment.patient_name}</td>}
@@ -72,4 +68,4 @@ const AllAppointmentsComponent = ({state, handleShowModal}) => {
     )
 }
 
-export default AllAppointmentsComponent
+export default HistoryAppointments
