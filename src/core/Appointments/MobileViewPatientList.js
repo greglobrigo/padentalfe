@@ -11,6 +11,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Moment from 'react-moment';
+import {Tabs, Tab} from 'react-bootstrap';
 
 
 const MobileViewPatientListComponent = ({state, handleShowModal}) => {
@@ -20,76 +21,127 @@ const MobileViewPatientListComponent = ({state, handleShowModal}) => {
 
     return (
         <div className="container mt-5 mb-5" >
-            <InfiniteScroll
-                style={{ padding: '1rem' }}
-                dataLength={state?.appointments.length} 
-                next={() => setPage(page + 1)}
-                hasMore={true}
-                // loader={
-                //     <div className="loading-container">
-                //         <img src={Gif_loading} alt="loading" style={{width: '100%'}}/>
-                //         <h6 style={{fontWeight: 'bold'}}>Loading</h6>
-                //     </div>
-                // }
-            >
-                {state?.appointments.map((appointment, index) => {
-                    return (
-                        <Card key={index} className="mobile-view-patient-details-container mb-3" md={6}>
-                            <Card.Header style={{fontSize: '1.5rem', fontWeight: 'bold'}}>{appointment.patient_name}</Card.Header>
-                            <Card.Body style={{lineHeight: 'normal'}}>
-                                <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
-                                    <CgDetailsLess className="mobile-view-patient-details-icon" />Age: {appointment.age}
-                                </Card.Text>
-                                <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
-                                    <FaRegAddressBook className="mobile-view-patient-details-icon" />
-                                    Address: {appointment.address}
-                                </Card.Text>
-                                <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
-                                    <BsFillTelephoneFill className="mobile-view-patient-details-icon" />Phone Number: {appointment.contact_number}
-                                </Card.Text>
-                                <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
-                                    <BsCalendarDateFill className="mobile-view-patient-details-icon" />Preferred Date: {" "}<Moment format="MM/DD/YY">{appointment.preferred_date}</Moment>
-                                </Card.Text>
-                                <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
-                                    <BiTime className="mobile-view-patient-details-icon" />Preferred Time: {" "}<Moment format="LT">{appointment.preferred_time}</Moment>
-                                </Card.Text>
-                                <div className="action-btns-container">
-                                    <OverlayTrigger
-                                        placement='bottom'
-                                        overlay={
-                                            <Tooltip id={`tooltip-bottom`}>
-                                                {`Show ${appointment.name}'s details`}
-                                            </Tooltip>
-                                        }
-                                    >
-                                        <Button variant="info" onClick={() => handleShowModal('view-details', appointment)}><BiDetail /></Button>
-                                    </OverlayTrigger>
-                                    <OverlayTrigger
-                                        placement='bottom'
-                                        overlay={
-                                            <Tooltip id={`tooltip-bottom`}>
-                                                {`Edit ${appointment.name}'s details`}
-                                            </Tooltip>
-                                        }
-                                    >
-                                        <Button variant="secondary"  onClick={() => handleShowModal('edit-details', appointment)}><BiEdit /></Button>
-                                    </OverlayTrigger>
-                                    {/* <OverlayTrigger
-                                        placement='bottom'
-                                        overlay={
-                                            <Tooltip id={`tooltip-bottom`}>
-                                                {`Delete ${patient.name}'s details`}
-                                            </Tooltip>
-                                        }
-                                    >
-                                        <Button variant="danger" onClick={() => handleShowModal('delete-details')}><RiDeleteBin2Line /></Button>
-                                    </OverlayTrigger> */}
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    )
-                })}
-            </InfiniteScroll>
+                <Tabs defaultActiveKey="all" id="uncontrolled-tab-example" className="mb-3">
+                    <Tab eventKey="all" title="All">
+                        {state?.appointments.map((appointment, index) => {
+                            return (
+                                <Card key={index} className="mobile-view-patient-details-container mb-3" md={6}>
+                                    <Card.Header style={{fontSize: '1.5rem', fontWeight: 'bold'}}>{appointment.patient_name}</Card.Header>
+                                    <Card.Body style={{lineHeight: 'normal'}}>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <CgDetailsLess className="mobile-view-patient-details-icon" />Age: {appointment.age}
+                                        </Card.Text>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <FaRegAddressBook className="mobile-view-patient-details-icon" />
+                                            Address: {appointment.address}
+                                        </Card.Text>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <BsFillTelephoneFill className="mobile-view-patient-details-icon" />Phone Number: {appointment.contact_number}
+                                        </Card.Text>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <BsCalendarDateFill className="mobile-view-patient-details-icon" />Preferred Date: {" "}<Moment format="MM/DD/YY">{appointment.preferred_date}</Moment>
+                                        </Card.Text>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <BiTime className="mobile-view-patient-details-icon" />Preferred Time: {" "}<Moment format="LT">{appointment.preferred_time}</Moment>
+                                        </Card.Text>
+                                        <div className="action-btns-container">
+                                            <OverlayTrigger
+                                                placement='bottom'
+                                                overlay={
+                                                    <Tooltip id={`tooltip-bottom`}>
+                                                        {`Show ${appointment.name}'s details`}
+                                                    </Tooltip>
+                                                }
+                                            >
+                                                <Button variant="info" onClick={() => handleShowModal('view-details', appointment)}><BiDetail /></Button>
+                                            </OverlayTrigger>
+                                            <OverlayTrigger
+                                                placement='bottom'
+                                                overlay={
+                                                    <Tooltip id={`tooltip-bottom`}>
+                                                        {`Edit ${appointment.name}'s details`}
+                                                    </Tooltip>
+                                                }
+                                            >
+                                                <Button variant="secondary"  onClick={() => handleShowModal('edit-details', appointment)}><BiEdit /></Button>
+                                            </OverlayTrigger>
+                                            {/* <OverlayTrigger
+                                                placement='bottom'
+                                                overlay={
+                                                    <Tooltip id={`tooltip-bottom`}>
+                                                        {`Delete ${patient.name}'s details`}
+                                                    </Tooltip>
+                                                }
+                                            >
+                                                <Button variant="danger" onClick={() => handleShowModal('delete-details')}><RiDeleteBin2Line /></Button>
+                                            </OverlayTrigger> */}
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                            )
+                        })}
+                    </Tab>
+                    <Tab eventKey="approved" title="Approved">
+                        {state?.approvedAppointments.map((appointment, index) => {
+                            return (
+                                <Card key={index} className="mobile-view-patient-details-container mb-3" md={6}>
+                                    <Card.Header style={{fontSize: '1.5rem', fontWeight: 'bold'}}>{appointment.patient_name}</Card.Header>
+                                    <Card.Body style={{lineHeight: 'normal'}}>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <CgDetailsLess className="mobile-view-patient-details-icon" />Age: {appointment.age}
+                                        </Card.Text>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <FaRegAddressBook className="mobile-view-patient-details-icon" />
+                                            Address: {appointment.address}
+                                        </Card.Text>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <BsFillTelephoneFill className="mobile-view-patient-details-icon" />Phone Number: {appointment.contact_number}
+                                        </Card.Text>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <BsCalendarDateFill className="mobile-view-patient-details-icon" />Preferred Date: {" "}<Moment format="MM/DD/YY">{appointment.preferred_date}</Moment>
+                                        </Card.Text>
+                                        <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
+                                            <BiTime className="mobile-view-patient-details-icon" />Preferred Time: {" "}<Moment format="LT">{appointment.preferred_time}</Moment>
+                                        </Card.Text>
+                                        <div className="action-btns-container">
+                                            <OverlayTrigger
+                                                placement='bottom'
+                                                overlay={
+                                                    <Tooltip id={`tooltip-bottom`}>
+                                                        {`Show ${appointment.name}'s details`}
+                                                    </Tooltip>
+                                                }
+                                            >
+                                                <Button variant="info" onClick={() => handleShowModal('view-details', appointment)}><BiDetail /></Button>
+                                            </OverlayTrigger>
+                                            <OverlayTrigger
+                                                placement='bottom'
+                                                overlay={
+                                                    <Tooltip id={`tooltip-bottom`}>
+                                                        {`Edit ${appointment.name}'s details`}
+                                                    </Tooltip>
+                                                }
+                                            >
+                                                <Button variant="secondary"  onClick={() => handleShowModal('edit-details', appointment)}><BiEdit /></Button>
+                                            </OverlayTrigger>
+                                            {/* <OverlayTrigger
+                                                placement='bottom'
+                                                overlay={
+                                                    <Tooltip id={`tooltip-bottom`}>
+                                                        {`Delete ${patient.name}'s details`}
+                                                    </Tooltip>
+                                                }
+                                            >
+                                                <Button variant="danger" onClick={() => handleShowModal('delete-details')}><RiDeleteBin2Line /></Button>
+                                            </OverlayTrigger> */}
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                            )
+                        })}
+                    </Tab>
+            </Tabs>
+                
             {/* <ToastComponent showA={showA}/> */}
             {/* <div>
                 <button onClick={notify}>Notify!</button>

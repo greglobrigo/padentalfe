@@ -12,6 +12,8 @@ const AppProvider = (props) => {
         loading: false,
         data: '',
         appointmentsUser: '',
+        appointmentTabs: 0,
+        schedule: 'all'
     });
 
     const initState = {
