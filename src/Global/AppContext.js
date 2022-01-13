@@ -6,6 +6,7 @@ const AppProvider = (props) => {
         modalShow: false,
         appointments: [],
         approvedAppointments: [],
+        historyAppointments: [],
         title: '',
         action: '',
         btnColor: '',

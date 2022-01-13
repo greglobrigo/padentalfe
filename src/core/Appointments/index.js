@@ -2,7 +2,7 @@ import React, {useEffect, useContext, useState} from 'react'
 import './index.css'
 import DesktopViewPatientList from './DesktopViewPatientList'
 import {AppContext} from '../../Global/AppContext';
-import {appointmentList, approvedAppointmentList} from '../api/api'
+import {appointmentList, approvedAppointmentList, appointmentHistoryList} from '../api/api'
 import Gif_loading from '../../images/gif_loading.gif'
 import ValidationModalComponent from '../ValidationModal'
 import {Dropdown} from 'react-bootstrap'
@@ -20,7 +20,7 @@ const AppointmentsComponent = (props) => {
         setState({loading: true})
         appointmentList('all', isAuthenticated())
         .then(data => {
-            console.log(data.appointments)
+            console.log(`All`, data.appointments)
             if(data.status === "FAILED") {
                 return (
                     setState({error: data.status})
@@ -30,12 +30,23 @@ const AppointmentsComponent = (props) => {
 
         approvedAppointmentList('all', isAuthenticated())
         .then(data => {
-            console.log(data.appointments)
+            console.log(`Approved`, data.appointments)
             if(data.status === "FAILED") {
                 return (
                     setState({error: data.status})
                 )
             } else return setState({...state, approvedAppointments: data.appointments, loading: false})
+        })
+
+        appointmentHistoryList('all', isAuthenticated())
+        .then(data => {
+            console.log(`History dataaaa`, data)
+            console.log(`History`, data.appointments)
+            if(data.status === "FAILED") {
+                return (
+                    setState({error: data.status})
+                )
+            } else return setState({...state, historyAppointments: data.appointments, loading: false})
         })
     }, [])
 

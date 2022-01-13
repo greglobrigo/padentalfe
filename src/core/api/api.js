@@ -57,3 +57,21 @@ export const approvedAppointmentList = (value, user) => {
         })
     }
 }
+
+
+export const appointmentHistoryList = (value, user) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/v1/patients/appointments?dateRange=${value}`, {
+        method: "GET",
+        'Content-type': 'application/json',
+        headers: {
+            'userToken': user.userToken,
+            'authToken': user.authToken,
+        }
+    })
+    .then(response => {
+        return response.json()
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}

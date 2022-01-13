@@ -35,7 +35,6 @@ const Menu = ({history}) => {
                         {/* <Link className="nav-link" style={isActive(history, '/users')} to="/users">Users</Link> */}
                         <Link className="nav-link" style={isActive(history, '/services')} to="/services">Services</Link>
                         {isAuthenticated() && <Link className="nav-link" style={isActive(history, '/appointments')} to="/appointments">Appointments</Link> }
-                        {isAuthenticated() && <Link className="nav-link" style={isActive(history, '/appointment-history')} to="/appointment-history">Appointment History</Link>}
                         {isAuthenticated() ?
                         <div className="accounts">
                             {/* <Link className="nav-link" style={isActive(history, '/signout')} to="/signin">Sign out</Link> */}
