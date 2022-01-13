@@ -34,7 +34,7 @@ const DesktopViewPatientList = ({state, handleShowModal, setState}) => {
                 } else return setState({...state, appointments: data.appointments, loading: false})
             })
         } else if(value === 1) {
-            approvedAppointmentList(state.schedule, isAuthenticated())
+            approvedAppointmentList(localStorage.getItem('approvedAppointmentRange'), isAuthenticated())
             .then(data => {
                 console.log(data.appointments)
                 if(data.status === "FAILED") {
@@ -95,7 +95,7 @@ const DesktopViewPatientList = ({state, handleShowModal, setState}) => {
                         <TabList>
                             <Tab onClick={() => handleGetDataAllSchedule('all')}>All</Tab>
                             <Tab onClick={() => handleGetDataAllSchedule('today')}>Today</Tab>
-                            <Tab onClick={() => handleGetDataAllSchedule('week')}>Weekday</Tab>
+                            <Tab onClick={() => handleGetDataAllSchedule('week')}>Week</Tab>
                             <Tab onClick={() => handleGetDataAllSchedule('2weeks')}>2 Weeks</Tab>
                             <Tab onClick={() => handleGetDataAllSchedule('month')}>Month</Tab>
                         </TabList>
@@ -107,7 +107,7 @@ const DesktopViewPatientList = ({state, handleShowModal, setState}) => {
                         <TabList>
                             <Tab onClick={() => handleGetDataApprovedSchedule('all')}>All</Tab>
                             <Tab onClick={() => handleGetDataApprovedSchedule('today')}>Today</Tab>
-                            <Tab onClick={() => handleGetDataApprovedSchedule('week')}>Weekday</Tab>
+                            <Tab onClick={() => handleGetDataApprovedSchedule('week')}>Week</Tab>
                             <Tab onClick={() => handleGetDataApprovedSchedule('2weeks')}>2 Weeks</Tab>
                             <Tab onClick={() => handleGetDataApprovedSchedule('month')}>Month</Tab>
                         </TabList>
