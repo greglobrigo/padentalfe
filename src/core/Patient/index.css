@@ -2,7 +2,7 @@
 
 /*  */
 .desktop-patient-component {
-    display: none;
+    display: block;
 }
 .action-btns-container {
     display: flex;

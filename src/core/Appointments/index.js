@@ -73,29 +73,6 @@ const AppointmentsComponent = (props) => {
         }
     }
 
-    // const handleSelectedValue = (e) => {
-    //     e.preventDefault();
-    //     setState({...state, loading: true})
-    //     setSelectedValue(e.target.value)
-    //     appointmentList(e.target.value, isAuthenticated())
-    //     .then(data => {
-    //         if(data.status === "FAILED") {
-    //             return (
-    //                 setState({error: data.status})
-    //             )
-    //         } else return setState({...state, appointments: data.appointments, loading: false})
-    //     })
-
-    //     approvedAppointmentList(e.target.value, isAuthenticated())
-    //     .then(data => {
-    //         if(data.status === "FAILED") {
-    //             return (
-    //                 setState({error: data.status})
-    //             )
-    //         } else return setState({...state, approvedAppointments: data.appointments, loading: false})
-    //     })
-    // }
-
 
     return (
         <>
@@ -109,25 +86,11 @@ const AppointmentsComponent = (props) => {
                     <>
                         <h1>Appointments</h1>
                         <div className="desktop-patient-component">
-                            {/* <select className="select-appointments" value={selectedValue} onChange={(e) => handleSelectedValue(e)}>
-                                <option value="all">All</option>
-                                <option value="today">Today</option>
-                                <option value="week">Week</option>
-                                <option value="2weeks">2 Weeks</option>
-                                <option value="month">Month</option>
-                            </select> */}
                             <DesktopViewPatientList state={state} handleShowModal={handleShowModal} setState={setState} /> 
                         </div>
-                        <div className="mobile-patient-component">
-                            {/* <select className="select-appointments" value={selectedValue} onChange={(e) => handleSelectedValue(e)}>
-                                <option value="all">All</option>
-                                <option value="today">Today</option>
-                                <option value="week">Week</option>
-                                <option value="2weeks">2 Weeks</option>
-                                <option value="month">Month</option>
-                            </select> */}
+                        {/* <div className="mobile-patient-component">
                             <MobileViewPatientComponent state={state} handleShowModal={handleShowModal} /> 
-                        </div>
+                        </div> */}
                     </>
                 }
                
