@@ -8,8 +8,9 @@
 
 .questions-container { 
     display: flex;
-    align-items: center;
-    height: 3rem;
+    flex-direction: column;
+    /* height: 3rem; */
+    gap: 0.5rem;
 }
 .questions-container:hover { 
     background: #9c9a9ab6;
@@ -32,9 +33,17 @@
     .row-form {
         display: flex;
         width: 100%;
-        gap: 0.5rem;
+        gap: 1rem;
         justify-content: center;
         align-items: center
+    }
+    .questions-container { 
+        flex-direction: unset !important;
+        align-items: center;
+        gap: 0;
+    }
+    label {
+        justify-content: center;
     }
 }
 
@@ -45,3 +54,17 @@
 .appointment-form-label {
     margin-bottom: 1rem;
 }
+
+label {
+    margin: 0;
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+}
+input[type="radio"] {
+    height: 1.2rem;
+    width: 1.2rem;
+    cursor: pointer;
+}
+
+

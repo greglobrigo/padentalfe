@@ -103,7 +103,7 @@ const AppointmentsComponent = (props) => {
                     :
                     <>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                            <h1>Appointments</h1>
+                            <h1 style={{marginBottom: 'unset'}}>Appointments</h1>
                             <Link to="/appointments/new" ><Button variant="info">Add Appointment</Button></Link>
                         </div>
                         <div className="desktop-patient-component">
