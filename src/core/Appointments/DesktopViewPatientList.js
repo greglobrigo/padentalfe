@@ -98,7 +98,7 @@ const DesktopViewPatientList = ({state, handleShowModal, setState}) => {
         <div>
             <Tabs forceRenderTabPanel defaultIndex={localStorage.getItem('appointmentTab')}>
                 <TabList>
-                    <Tab onClick={() => handleGetData(0)}>All</Tab>
+                    <Tab onClick={() => handleGetData(0)}>All Booked</Tab>
                     <Tab onClick={() => handleGetData(1)}>Approved</Tab>
                     {!isAuthenticated().admin_email && <Tab onClick={() => handleGetData(2)}>History</Tab>}
                 </TabList>

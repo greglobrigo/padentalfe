@@ -16,7 +16,7 @@ const ApprovedAppointment = ({state, handleShowModal}) => {
                         {isAuthenticated().admin_email && <th>Address</th>}
                         {isAuthenticated().admin_email && <th>Phone Number</th>}
                         <th>Schedule</th>
-                        <th>Action</th>
+                        {isAuthenticated().admin_email && <th>Action</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -28,7 +28,8 @@ const ApprovedAppointment = ({state, handleShowModal}) => {
                                 {isAuthenticated().admin_email && <td>{appointment.address}</td>}
                                 {isAuthenticated().admin_email && <td>{appointment.contact_number}</td>}
                                 <td>{(appointment.preferred_date && appointment.preferred_time) ? <><Moment format="MM/DD/YY">{appointment.preferred_date}</Moment> - <Moment format="LT">{appointment.preferred_time}</Moment></> : ''}</td>
-                                <td>
+                                {isAuthenticated().admin_email && 
+                                (<td>
                                     <div className="action-btns-container">
                                         <OverlayTrigger
                                             placement='bottom'
@@ -40,7 +41,7 @@ const ApprovedAppointment = ({state, handleShowModal}) => {
                                         >
                                             <Button variant="info" onClick={() => handleShowModal('view-details', appointment)}><BiDetail /></Button>
                                         </OverlayTrigger>
-                                        <OverlayTrigger
+                                        {/* <OverlayTrigger
                                             placement='bottom'
                                             overlay={
                                                 <Tooltip id={`tooltip-bottom`}>
@@ -49,7 +50,7 @@ const ApprovedAppointment = ({state, handleShowModal}) => {
                                             }
                                         >
                                             <Button variant="secondary" onClick={() => handleShowModal('edit-details', appointment)}><BiEdit /></Button>
-                                        </OverlayTrigger>
+                                        </OverlayTrigger> */}
                                         {/* <OverlayTrigger
                                             placement='bottom'
                                             overlay={
@@ -61,7 +62,8 @@ const ApprovedAppointment = ({state, handleShowModal}) => {
                                             <Button variant="danger"><RiDeleteBin2Line /></Button>
                                         </OverlayTrigger> */}
                                     </div>
-                                </td>
+                                </td>)
+                                }
                             </tr>
                         )
                     })}

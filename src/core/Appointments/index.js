@@ -8,6 +8,7 @@ import ValidationModalComponent from '../ValidationModal'
 import {Dropdown} from 'react-bootstrap'
 import MobileViewPatientComponent from './MobileViewPatientList'
 import {isAuthenticated} from '../../auth'
+import { Button } from 'react-bootstrap';
 
 
 
@@ -20,7 +21,6 @@ const AppointmentsComponent = (props) => {
         setState({loading: true})
         appointmentList('all', isAuthenticated())
         .then(data => {
-            console.log(`All`, data.appointments)
             if(data.status === "FAILED") {
                 return (
                     setState({error: data.status})
@@ -30,7 +30,6 @@ const AppointmentsComponent = (props) => {
 
         approvedAppointmentList('all', isAuthenticated())
         .then(data => {
-            console.log(`Approved`, data.appointments)
             if(data.status === "FAILED") {
                 return (
                     setState({error: data.status})
@@ -40,8 +39,6 @@ const AppointmentsComponent = (props) => {
 
         appointmentHistoryList('all', isAuthenticated())
         .then(data => {
-            console.log(`History dataaaa`, data)
-            console.log(`History`, data.appointments)
             if(data.status === "FAILED") {
                 return (
                     setState({error: data.status})
@@ -81,6 +78,15 @@ const AppointmentsComponent = (props) => {
                 data: appointment,
                 loading: false
             })
+        } else if(val === 'add-appointment') {
+            console.log('testttttt')
+            setState({...state, 
+                title: 'New Appointment',
+                modalShow: true,
+                action: 'new', 
+                btnColor: 'primary',
+                loading: false
+            })
         }
     }
 
@@ -95,7 +101,10 @@ const AppointmentsComponent = (props) => {
                     </div>
                     :
                     <>
-                        <h1>Appointments</h1>
+                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                            <h1>Appointments</h1>
+                            <Button variant="info" onClick={() => handleShowModal('add-appointment', '')}>Add Appointment</Button>
+                        </div>
                         <div className="desktop-patient-component">
                             <DesktopViewPatientList state={state} handleShowModal={handleShowModal} setState={setState} /> 
                         </div>

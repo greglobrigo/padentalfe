@@ -29,3 +29,6 @@
 .appointment-form-label {
     margin-bottom: 1rem;
 }
+label.btn.btn-outline-success {
+    border-radius: 0px;
+}
