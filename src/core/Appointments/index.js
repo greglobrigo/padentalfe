@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react'
+import React, {useEffect, useContext} from 'react'
 import './index.css'
 import DesktopViewPatientList from './DesktopViewPatientList'
 import {AppContext} from '../../Global/AppContext';
@@ -9,6 +9,7 @@ import {Dropdown} from 'react-bootstrap'
 import MobileViewPatientComponent from './MobileViewPatientList'
 import {isAuthenticated} from '../../auth'
 import { Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 
 
 
@@ -94,7 +95,7 @@ const AppointmentsComponent = (props) => {
     return (
         <>
             <div className="container" style={{paddingTop: '9.1rem'}}>
-                {state.loading || !state.appointments?
+                {state.loading || !state.appointments || !state.approvedAppointments || !state.historyAppointments?
                     <div className="loading-container">
                         <img src={Gif_loading} alt="loading" style={{width: '100%'}}/>
                         <h6 style={{fontWeight: 'bold'}}>Loading</h6>
@@ -103,7 +104,7 @@ const AppointmentsComponent = (props) => {
                     <>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                             <h1>Appointments</h1>
-                            <Button variant="info" onClick={() => handleShowModal('add-appointment', '')}>Add Appointment</Button>
+                            <Link to="/appointments/new" ><Button variant="info">Add Appointment</Button></Link>
                         </div>
                         <div className="desktop-patient-component">
                             <DesktopViewPatientList state={state} handleShowModal={handleShowModal} setState={setState} /> 

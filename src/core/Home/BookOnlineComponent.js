@@ -2,6 +2,8 @@ import React from 'react'
 import {Row, Col, Button, Card} from 'react-bootstrap';
 import {IoIosArrowDroprightCircle} from 'react-icons/io'
 import DoctorImage from '../../images/doctor.jpg'
+import {Link} from 'react-router-dom'
+
 
 const BookOnlineComponent = () => {
     return (
@@ -10,7 +12,7 @@ const BookOnlineComponent = () => {
                     <Col className="home-first-section" xs={12} lg={6}>
                         <h1 className="title">Book online</h1>
                         <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
-                        <Button variant="primary" className="button">Make an Appointment</Button>
+                        <Link to="/appointments/new"><Button variant="primary" className="button">Make an Appointment</Button></Link>
 
                         <div className="home-card-container">
                             <Card className="header-cards" style={{ width: '18rem' }}>
@@ -22,10 +24,10 @@ const BookOnlineComponent = () => {
                             </Card>
                             <Card className="header-cards" style={{ width: '18rem' }}>
                                 <Card.Title className="card-title">Schedule</Card.Title>
-                                <Card.Text>Mon-Fri <br />8 AM - 8PM</Card.Text>
-                                <div className="home-card-arrow-btn pulse" style={{position: 'absolute'}}>
+                                <Card.Text>Mon-Sat <br />9:00AM - 5:00PM</Card.Text>
+                                {/* <div className="home-card-arrow-btn pulse" style={{position: 'absolute'}}>
                                     <IoIosArrowDroprightCircle />
-                                </div>
+                                </div> */}
                             </Card>
                         </div>
                     </Col>

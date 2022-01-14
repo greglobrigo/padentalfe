@@ -4,7 +4,9 @@ import DentalLogo from '../../images/dental_logo1.png'
 import {MdLocationOn} from 'react-icons/md'
 import {BsFillTelephoneFill} from 'react-icons/bs'
 import {MdAccessTimeFilled} from 'react-icons/md'
+import {AiOutlineMail} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
+import {isAuthenticated} from '../../auth'
 
 
 const DetailsComponent = () => {
@@ -24,7 +26,7 @@ const DetailsComponent = () => {
                                     </div>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
                                         <h6 className="details-title">Address</h6>
-                                        <p className="sub-title" style={{marginBottom: 'unset'}}>Lorem ipsum dolor sit amet</p>
+                                        <p className="sub-title" style={{marginBottom: 'unset'}}>Ground flr Hotel Rex Bldg., <br/>Aguinaldo St. Legazpi Philippines</p>
                                     </div>
                                 </div>
                                 <div className="details-main">
@@ -33,7 +35,7 @@ const DetailsComponent = () => {
                                     </div>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
                                         <h6 className="details-title">Phone</h6>
-                                        <p className="sub-title" style={{marginBottom: 'unset'}}>+999 9999 990</p>
+                                        <p className="sub-title" style={{marginBottom: 'unset'}}>+63 917 162 5424</p>
                                     </div>
                                 </div>
                                 <div className="details-main">
@@ -42,7 +44,16 @@ const DetailsComponent = () => {
                                     </div>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
                                         <h6 className="details-title">Work Time</h6>
-                                        <p className="sub-title" style={{marginBottom: 'unset'}}>Mon-Fri: 8 AM-8 PM</p>
+                                        <p className="sub-title" style={{marginBottom: 'unset'}}>Mon-Fri: 9:00AM-5:00PM</p>
+                                    </div>
+                                </div>
+                                <div className="details-main">
+                                    <div className="details-icon">
+                                        <AiOutlineMail />
+                                    </div>
+                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                        <h6 className="details-title">Email </h6>
+                                        <p className="sub-title" style={{marginBottom: 'unset'}}>antiqueradentalclinic@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -60,9 +71,9 @@ const DetailsComponent = () => {
                                 <Link className="nav-link">
                                     <p className="sub-title details-desc">About Antiquera Dental Clinic</p>
                                 </Link>
-                                <Link className="nav-link">
+                                {/* <Link className="nav-link">
                                     <p className="sub-title details-desc">Our Contacts</p>
-                                </Link>
+                                </Link> */}
                             </Col>
                             <Col>
                                 <h6 className="details-title">Help Center</h6>
@@ -70,11 +81,13 @@ const DetailsComponent = () => {
                                     <p className="sub-title details-desc">Patient Support</p>
                                 </Link>
                                 <a className="nav-link" rel="noreferrer" href="https://m.me/antiqueradentalclinic" target="_blank">
-                                    <p className="sub-title details-desc">Message us</p>
+                                    <p className="sub-title details-desc">Direct message us</p>
                                 </a>
-                                <Link className="nav-link">
-                                    <p className="sub-title details-desc">Registration</p>
-                                </Link>
+                                {!isAuthenticated() &&
+                                    <Link className="nav-link" to="/signup">
+                                        <p className="sub-title details-desc">Register</p>
+                                    </Link>
+                                }
                             </Col>
                         </Row>
                     </Col>

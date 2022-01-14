@@ -111,7 +111,7 @@
     rgba(232, 232, 244, 1) 50%,
     rgba(78, 180, 81, 1) 100%
   );
-  color: #062d92 !important;
+  text-shadow: 2px 2px 8px #000;
 }
 @media (min-width: 768px) {
   .button {

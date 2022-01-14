@@ -7,6 +7,7 @@ import Footer from './core/Footer'
 import Signin from './core/SignIn'
 import Signup from './core/Register'
 import Appointments from './core/Appointments'
+import NewAppointments from './core/Appointments/NewAppointment'
 import {isAuthenticated} from './auth'
 
 
@@ -26,6 +27,7 @@ const MainRouter = () => {
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/admin" component={Signin} />
                     <Route exact path="/appointments" component={Appointments} />
+                    <Route exact path="/appointments/new" component={NewAppointments} />
                     {/* <Route exact path="/users" component={Users} />
                     <Route exact path="/signup" component={Signup} />
                     <PrivateRoute exact path="/post/create" component={NewPost} /> */}

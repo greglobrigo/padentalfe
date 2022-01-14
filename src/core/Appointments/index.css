@@ -6,7 +6,42 @@
     border-radius: 10px;
 }
 
+.questions-container { 
+    display: flex;
+    align-items: center;
+    height: 3rem;
+}
+.questions-container:hover { 
+    background: #9c9a9ab6;
+}
+
+.questions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.questions-container > h6{ 
+    margin-bottom: unset;
+    margin-right: 1rem;
+    width: 100%;
+}
 
 
+@media (min-width: 768px) {
+    .row-form {
+        display: flex;
+        width: 100%;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center
+    }
+}
 
+.item-form {
+    width: 100%;
+}
   
+.appointment-form-label {
+    margin-bottom: 1rem;
+}
