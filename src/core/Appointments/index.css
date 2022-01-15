@@ -13,7 +13,7 @@
     gap: 0.5rem;
 }
 .questions-container:hover { 
-    background: #9c9a9ab6;
+    background: rgba(172, 172, 172, 0.2);
 }
 
 .questions-section {
@@ -45,6 +45,17 @@
     label {
         justify-content: center;
     }
+    .menu-title-container {
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row !important;
+    }
+    .menu-title {
+        font-size: 2.5rem !important;
+    }
+    .submit-button {
+        width: unset;
+    }
 }
 
 .item-form {
@@ -67,4 +78,18 @@ input[type="radio"] {
     cursor: pointer;
 }
 
+.submit-button {
+    margin-left: auto !important;
+    margin-bottom: unset !important;
+    padding: 0.5rem 1rem !important;
+    width: 100%;
+}
 
+
+
+.menu-title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}

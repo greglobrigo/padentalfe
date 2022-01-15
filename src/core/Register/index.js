@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import {signup} from '../../auth'
 import {Link} from 'react-router-dom'
+import {Button} from 'react-bootstrap'
 
 const RegisterComponent = () => {
 
@@ -49,7 +50,7 @@ const RegisterComponent = () => {
                 flexDirection: 'column', 
                 paddingTop: '6.1rem', 
                 width: '15rem', 
-                height: 'calc(100vh - 6rem)'
+                // height: 'calc(100vh - 6rem)'
             }}>
             <h2 className="mt-5 mb-5">Signup</h2>
 
@@ -75,7 +76,8 @@ const RegisterComponent = () => {
                     <label className="text-muted">Confirm Password</label>
                     <input type={state.show ? `text` : `password`} className="form-control" ref={password_confirmation}/>
                 </div>
-                <button className="btn btn-raised btn-primary mt-3">Submit</button>
+
+                <Button className="button submit-button mt-3" type="submit" variant={`primary`} >Submit</Button>
             </form>  
         </div>
     )

@@ -102,9 +102,9 @@ const AppointmentsComponent = (props) => {
                     </div>
                     :
                     <>
-                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                            <h1 style={{marginBottom: 'unset'}}>Appointments</h1>
-                            <Link to="/appointments/new" ><Button variant="info">Add Appointment</Button></Link>
+                        <div className="menu-title-container">
+                            <h1 className="title menu-title" style={{marginBottom: 'unset'}}>Appointments</h1>
+                            <Link to="/appointments/new" ><Button className="button submit-button" type="submit" variant={`primary`} >Book now!</Button></Link>
                         </div>
                         <div className="desktop-patient-component">
                             <DesktopViewPatientList state={state} handleShowModal={handleShowModal} setState={setState} /> 
@@ -114,7 +114,6 @@ const AppointmentsComponent = (props) => {
                         </div> */}
                     </>
                 }
-               
                     <ValidationModalComponent 
                         show={state.modalShow} 
                         action={state.action}
@@ -124,8 +123,7 @@ const AppointmentsComponent = (props) => {
                         data={state.data}
                         onHide={() => setState({...state, modalShow: false})}
                     />
-
-                            
+       
             </div>
         </>
     )

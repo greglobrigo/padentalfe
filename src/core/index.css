@@ -50,3 +50,19 @@ button.navbar-toggler.collapsed {
         margin-left: auto;
     }
 }
+
+button#dropdown-menu-align-end {
+    background-color: unset;
+    /* color: #acacac; */
+    color: rgba(0,0,0,.55);
+    border: none;
+}
+.dropdown {
+    display: flex;
+}
+.dropdown-menu.show.dropdown-menu-end, a.dropdown-item {
+    padding: 0;
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: unset;
+}

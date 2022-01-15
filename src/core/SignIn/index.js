@@ -87,9 +87,10 @@ const SignInComponent = () => {
                     <Form.Control type="password" placeholder="Password" ref={password}/>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" onClick={handleSubmit}>
+                {/* <Button variant="primary" type="submit" onClick={handleSubmit}>
                     Submit
-                </Button>
+                </Button> */}
+                <Button className="button submit-button mt-3" type="submit" variant={`primary`} onClick={handleSubmit} >Submit</Button>
             </Form>
         </div>
     )

@@ -1,25 +1,45 @@
 import React from 'react'
 import './index.css'
 import {Link, withRouter} from 'react-router-dom'
-import {Navbar, Container, Nav} from 'react-bootstrap'
+import {Navbar, Container, Nav, DropdownButton, Dropdown } from 'react-bootstrap'
 import DentalLogo from '../images/dental_logo1.png'
 import { signout, isAuthenticated } from '../auth'
+
 
 
 const isActive = (history, path) => {
     if(history.location.pathname === path) {
         return {
             color: "#fff",
-            background: 'rgba(78,180,81,1)',
+            // background: 'rgba(78,180,81,1)',
+            borderBottom: '3px solid rgba(78,180,81,1)',
+            textShadow: '2px 2px 8px #000',
             fontWeight: 'bold',
-            borderRadius: '5px 20px 5px 20px',
+            borderRadius: '5px 20px 0px 20px',
             paddingLeft: '0.5rem'
         }
     } else return {paddingLeft: '0.5rem'}
 }
 
+const getNoDomainEmail = email => {
+    let noDomainEmail = null;
+    const pos = email.search('@'); // get position of domain
+    if (pos > 0) {
+      const emailDomain = email.slice(pos); // get domain name
+      noDomainEmail = email.slice(0, -(emailDomain.length)); // use the slice method to remove domain name
+    }
+    return noDomainEmail;
+};
+
 
 const Menu = ({history}) => {
+
+
+
+    const handleSignout = () => {
+        signout(() => history.push('/'))
+    }
+
 
     return (
         <div>
@@ -39,7 +59,13 @@ const Menu = ({history}) => {
                         {isAuthenticated() ?
                         <div className="accounts">
                             {/* <Link className="nav-link" style={isActive(history, '/signout')} to="/signin">Sign out</Link> */}
-                            <span className="nav-link" style={isActive(history, '/signup'), {cursor: 'pointer'}} onClick={() => signout(() => history.push('/'))}>Sign Out</span>
+                            <DropdownButton align="end" title={`Hi ${isAuthenticated().patient_email ? getNoDomainEmail(isAuthenticated().patient_email) : 'Admin'}`}id="dropdown-menu-align-end">
+                                {/* <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                                <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                                <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+                                <Dropdown.Divider /> */}
+                                <Dropdown.Item eventKey="4"><Link className="nav-link" style={isActive(history, '/signup'), {cursor: 'pointer', paddingLeft: '0.5rem'}} onClick={() => handleSignout('signout')}>Sign out</Link></Dropdown.Item>
+                            </DropdownButton>
                         </div>
                         :
                         <>

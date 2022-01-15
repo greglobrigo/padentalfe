@@ -1,5 +1,8 @@
 import React, {useState, useRef} from 'react'
 import {Form, Button} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import {bookAppointment} from '../api/api'
+import {isAuthenticated} from '../../auth'
 
 
 
@@ -9,6 +12,7 @@ const NewAppointmentComponent = () => {
     const address = useRef('');
     const contact_number = useRef('');
     const work = useRef('');
+    const note = useRef('');
     const [state, setState] = useState({
         preferred_time: '',
         preferred_date: '',
@@ -51,23 +55,32 @@ const NewAppointmentComponent = () => {
             address: address.current.value,
             contact_number: contact_number.current.value,
             work: work.current.value,
+            note: note.current.value,
             preferred_time,
             preferred_date,
-            have_cough,
-            have_colds: have_colds === 'true', 
-            have_diarrhea,
-            have_sorethroat,
-            have_bodyache,
-            have_headache,
-            have_hightemp,
-            have_difficultbreathing,
-            have_fatigue,
-            have_travelledPast14days,
-            have_travelledWhereCovid,
-            have_vicinityWhereCovid,
+            have_cough: have_cough === 'Yes',
+            have_colds: have_colds === 'Yes', 
+            have_diarrhea: have_diarrhea === 'Yes',
+            have_sorethroat: have_sorethroat === 'Yes',
+            have_bodyache: have_bodyache === 'Yes',
+            have_headache: have_headache === 'Yes',
+            have_hightemp: have_hightemp === 'Yes',
+            have_difficultbreathing: have_difficultbreathing === 'Yes',
+            have_fatigue: have_fatigue === 'Yes',
+            have_travelledPast14days: have_travelledPast14days === 'Yes',
+            have_travelledWhereCovid: have_travelledWhereCovid === 'Yes',
+            have_vicinityWhereCovid: have_vicinityWhereCovid === 'Yes',
         }
 
-        console.log({patient_data})
+        bookAppointment(patient_data, isAuthenticated())
+        .then(data => {
+            console.log({data})
+            // if(data.status === "FAILED") {
+            //     return (
+            //         setState({error: data.status})
+            //     )
+            // } else return setState({...state, approvedAppointments: data.appointments, loading: false})
+        })
     }
 
     const disablePastDate = () => {
@@ -81,9 +94,9 @@ const NewAppointmentComponent = () => {
     return (
         <div className="container" style={{paddingTop: '9.1rem'}}>
             <form onSubmit={handleSubmit} >
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                    <h1 style={{marginBottom: 'unset'}}>New Appointment</h1>
-                    <Button type="submit" variant={`primary`} style={{marginTop: '1rem', marginLeft: 'auto'}}>Submit</Button>
+                <div className="menu-title-container">
+                    <h1 className="title menu-title" >New Appointment</h1>
+                    <Link to="#" ><Button className="button submit-button" type="submit" variant={`primary`} onClick={(e) => handleSubmit(e)}>Submit</Button></Link>
                 </div>    
                     <div className="row-form">
                         <div className="item-form">
@@ -120,6 +133,12 @@ const NewAppointmentComponent = () => {
                             <Form.Control className="appointment-form-label" type="time" placeholder={`8:00 AM`} required min="09:00" max="17:00" value={state.preferred_time} onChange={(e) => setState({...state, preferred_time: e.target.value})} />
                         </div>
                     </div>
+                    <div className="row-form">
+                        <div className="item-form">
+                            <h6>Note:</h6>
+                            <Form.Control as="textarea" maxLength="30" className="appointment-form-label" type="text" placeholder={``} ref={note} style={{ height: '100px' }} />
+                        </div>
+                    </div>
                     <div className="questions-section">
                         <div className="questions-container">
                             <h6>1. INUUBO KA BA?(Do you have cough?): </h6>
@@ -145,16 +164,16 @@ const NewAppointmentComponent = () => {
                             <div className="row-form">
                                 <label>
                                     <input type="radio"
-                                        value="true"
+                                        value="Yes"
                                         name="radio1"
-                                        checked={state.have_colds === "true"}
+                                        checked={state.have_colds === "Yes"}
                                         onChange={(e) => setState({...state, have_colds: e.target.value})} required/>Yes
                                 </label>
                                 <label>
                                     <input type="radio"
-                                        value="false"
+                                        value="No"
                                         name="radio1"
-                                        checked={state.have_colds === "false"}
+                                        checked={state.have_colds === "No"}
                                         onChange={(e) => setState({...state, have_colds: e.target.value})} />No
                                 </label>
                             </div>

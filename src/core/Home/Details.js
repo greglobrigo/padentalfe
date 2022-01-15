@@ -61,14 +61,14 @@ const DetailsComponent = () => {
                     </Col>
                     <Col md={6} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                         <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
-                        <Button variant="primary" className="button">Make an Appointment</Button>
+                            <Link to="/appointments/new"><Button variant="primary" className="button">Make an Appointment</Button></Link>
                         <Row>
                             <Col>
                                 <h6 className="details-title">Quick Links</h6>
-                                <Link className="nav-link">
+                                <Link className="nav-link" to="#">
                                     <p className="sub-title details-desc">Our Services</p>
                                 </Link>
-                                <Link className="nav-link">
+                                <Link className="nav-link" to="#">
                                     <p className="sub-title details-desc">About Antiquera Dental Clinic</p>
                                 </Link>
                                 {/* <Link className="nav-link">
@@ -77,7 +77,7 @@ const DetailsComponent = () => {
                             </Col>
                             <Col>
                                 <h6 className="details-title">Help Center</h6>
-                                <Link className="nav-link">
+                                <Link className="nav-link" to="#">
                                     <p className="sub-title details-desc">Patient Support</p>
                                 </Link>
                                 <a className="nav-link" rel="noreferrer" href="https://m.me/antiqueradentalclinic" target="_blank">
