@@ -20,32 +20,44 @@ const AppointmentsComponent = (props) => {
 
     useEffect(() => {
         setState({loading: true})
-        appointmentList('all', isAuthenticated())
-        .then(data => {
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } else return setState({...state, appointments: data.appointments, loading: false})
-        })
+        // appointmentList('all', isAuthenticated())
+        // .then(data => {
+        //     if(data.status === "FAILED") {
+        //         return (
+        //             setState({error: data.status})
+        //         )
+        //     } else return setState({...state, appointments: data.appointments, loading: false})
+        // })
 
-        approvedAppointmentList('all', isAuthenticated())
-        .then(data => {
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } else return setState({...state, approvedAppointments: data.appointments, loading: false})
-        })
-
-        appointmentHistoryList('all', isAuthenticated())
-        .then(data => {
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } else return setState({...state, historyAppointments: data.appointments, loading: false})
-        })
+        // approvedAppointmentList('all', isAuthenticated())
+        // .then(data => {
+        //     if(data.status === "FAILED") {
+        //         return (
+        //             setState({error: data.status})
+        //         )
+        //     } else return setState({...state, approvedAppointments: data.appointments, loading: false})
+        // })
+        if(isAuthenticated().admin_email){
+            appointmentList('all', isAuthenticated())
+            .then(data => {
+                console.log(data)
+                if(data.status === "FAILED") {
+                    return (
+                        setState({error: data.status})
+                    )
+                } else return setState({...state, historyAppointments: data.appointments, loading: false})
+            })
+        } else {
+            appointmentHistoryList('all', isAuthenticated())
+            .then(data => {
+                console.log(data)
+                if(data.status === "FAILED") {
+                    return (
+                        setState({error: data.status})
+                    )
+                } else return setState({...state, historyAppointments: data.appointments, loading: false})
+            })
+        }
     }, [])
 
 
@@ -92,6 +104,7 @@ const AppointmentsComponent = (props) => {
     }
 
 
+
     return (
         <>
             <div className="container" style={{paddingTop: '9.1rem'}}>
@@ -104,7 +117,7 @@ const AppointmentsComponent = (props) => {
                     <>
                         <div className="menu-title-container">
                             <h1 className="title menu-title" style={{marginBottom: 'unset'}}>Appointments</h1>
-                            <Link to="/appointments/new" ><Button className="button submit-button" type="submit" variant={`primary`} >Book now!</Button></Link>
+                            {!isAuthenticated().admin_email && <Link to="/appointments/new" ><Button className="button submit-button" type="submit" variant={`primary`} >Book now!</Button></Link>}
                         </div>
                         <div className="desktop-patient-component">
                             <DesktopViewPatientList state={state} handleShowModal={handleShowModal} setState={setState} /> 

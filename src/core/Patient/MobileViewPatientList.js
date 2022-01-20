@@ -8,13 +8,11 @@ import {FaRegAddressBook} from 'react-icons/fa'
 import {BsFillTelephoneFill} from 'react-icons/bs'
 import Gif_loading from '../../images/gif_loading.gif'
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const MobileViewPatientListComponent = ({PatientsList, handleShowModal}) => {
     const [page, setPage] = useState(1)
-    const notify = () => toast("Wow so easy!");
 
 
     return (
@@ -86,11 +84,6 @@ const MobileViewPatientListComponent = ({PatientsList, handleShowModal}) => {
                     )
                 })}
             </InfiniteScroll>
-            {/* <ToastComponent showA={showA}/> */}
-            {/* <div>
-                <button onClick={notify}>Notify!</button>
-                <ToastContainer />
-            </div> */}
         </div>
     )
 }

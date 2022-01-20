@@ -25,7 +25,7 @@ const HistoryAppointments = ({state, handleShowModal}) => {
                                 {isAuthenticated().admin_email && <td>{appointment.age}</td>}
                                 {isAuthenticated().admin_email && <td>{appointment.address}</td>}
                                 {isAuthenticated().admin_email && <td>{appointment.contact_number}</td>}
-                                <td>{(appointment.preferred_date && appointment.preferred_time) ? <><Moment format="MM/DD/YY">{appointment.preferred_date}</Moment> - <Moment format="LT">{appointment.preferred_time}</Moment></> : ''}</td>
+                                <td>{(appointment.preferred_date && appointment.preferred_time) ? <><Moment format="MM/DD/YYYY">{appointment.preferred_date}</Moment> - <Moment format="LT">{appointment.preferred_time}</Moment></> : ''}</td>
                                 {isAuthenticated().admin_email && 
                                 (<td>
                                     <div className="action-btns-container">

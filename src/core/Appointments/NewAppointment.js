@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react'
+import {Redirect} from 'react-router-dom'
 import {Form, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {bookAppointment} from '../api/api'
@@ -7,33 +8,40 @@ import {isAuthenticated} from '../../auth'
 
 
 const NewAppointmentComponent = () => {
-    const patient_name = useRef('');
-    const age = useRef('');
-    const address = useRef('');
-    const contact_number = useRef('');
-    const work = useRef('');
-    const note = useRef('');
     const [state, setState] = useState({
+        patient_name: '', 
+        address: '',
+        work: '',
+        note: '',
+        age: '',
+        contact: '',
         preferred_time: '',
         preferred_date: '',
-        have_cough: '',
-        have_colds: '', 
-        have_diarrhea: '',
-        have_sorethroat: '',
-        have_bodyache: '',
-        have_headache: '',
-        have_hightemp: '',
-        have_difficultbreathing: '',
-        have_fatigue: '',
-        have_travelledPast14days: '',
-        have_travelledWhereCovid: '',
-        have_vicinityWhereCovid: '',
+        have_cough: 'No',
+        have_colds: 'No', 
+        have_diarrhea: 'No',
+        have_sorethroat: 'No',
+        have_bodyache: 'No',
+        have_headache: 'No',
+        have_hightemp: 'No',
+        have_difficultbreathing: 'No',
+        have_fatigue: 'No',
+        have_travelledPast14days: 'No',
+        have_travelledWhereCovid: 'No',
+        have_vicinityWhereCovid: 'No',
+        redirectToAppointments: false
     });
 
     
     const handleSubmit = (e) => {
         e.preventDefault();
         const {
+            patient_name, 
+            address,
+            work,
+            note,
+            age,
+            contact,
             preferred_time,
             preferred_date,
             have_cough,
@@ -47,15 +55,17 @@ const NewAppointmentComponent = () => {
             have_fatigue,
             have_travelledPast14days,
             have_travelledWhereCovid,
-            have_vicinityWhereCovid} = state
+            have_vicinityWhereCovid} = state;
+
+        const casePatient_name = patient_name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
 
         const patient_data = {
-            patient_name: patient_name.current.value,
-            age: age.current.value,
-            address: address.current.value,
-            contact_number: contact_number.current.value,
-            work: work.current.value,
-            note: note.current.value,
+            patient_name: casePatient_name,
+            age,
+            address,
+            contact_number: contact,
+            work,
+            note,
             preferred_time,
             preferred_date,
             have_cough: have_cough === 'Yes',
@@ -72,15 +82,8 @@ const NewAppointmentComponent = () => {
             have_vicinityWhereCovid: have_vicinityWhereCovid === 'Yes',
         }
 
-        bookAppointment(patient_data, isAuthenticated())
-        .then(data => {
-            console.log({data})
-            // if(data.status === "FAILED") {
-            //     return (
-            //         setState({error: data.status})
-            //     )
-            // } else return setState({...state, approvedAppointments: data.appointments, loading: false})
-        })
+        bookAppointment(patient_data, isAuthenticated(), state, setState)
+
     }
 
     const disablePastDate = () => {
@@ -90,6 +93,26 @@ const NewAppointmentComponent = () => {
         const yyyy = today.getFullYear();
         return yyyy + "-" + mm + "-" + dd;
     };
+
+    const onHandleContact = (e) => {
+        const contact = e.target.value
+        if (contact === '' || /^[0-9\b]+$/.test(contact)){
+            setState({...state, contact: e.target.value})
+        }
+    }
+
+    const onHandleAge = (e) => {
+        const age = e.target.value
+        if (age === '' || /^[0-9\b]+$/.test(age)){
+            setState({...state, age: e.target.value})
+        }
+    }
+
+    if(state.redirectToAppointments) {
+        return <Redirect to={`/appointments`} />
+    }
+    
+
 
     return (
         <div className="container" style={{paddingTop: '9.1rem'}}>
@@ -101,26 +124,26 @@ const NewAppointmentComponent = () => {
                     <div className="row-form">
                         <div className="item-form">
                             <h6>Name:</h6>
-                            <Form.Control className="appointment-form-label" type="text" placeholder={``} ref={patient_name} required/>
+                            <Form.Control className="appointment-form-label" type="text" placeholder={``} value={state.patient_name} onChange={(e) => setState({...state, patient_name: e.target.value})} required/>
                         </div>
                         <div className="item-form">
                             <h6>Age:</h6>
-                            <Form.Control className="appointment-form-label" type="number" placeholder={``} ref={age} required />
+                            <Form.Control className="appointment-form-label" type="text" maxLength="2" placeholder={``} value={state.age} onChange={(e) => onHandleAge(e)} required />
                         </div>
                         <div className="item-form">
                             <h6>Contact no.:</h6>
-                            <Form.Control className="appointment-form-label" type="number" placeholder={``} ref={contact_number} required />
+                            <Form.Control className="appointment-form-label" type="text" maxLength="11" placeholder={`e.g. (09979991234)`} value={state.contact} onChange={(e) => onHandleContact(e)} required />
                         </div>
                     </div>
                     
                     <div className="row-form">
                         <div className="item-form">
                             <h6>Address:</h6>
-                            <Form.Control className="appointment-form-label" type="text" placeholder={``} ref={address} required />
+                            <Form.Control className="appointment-form-label" type="text" placeholder={``} value={state.address} onChange={(e) => setState({...state, address: e.target.value})} required />
                         </div>
                         <div className="item-form">
                             <h6>Work (if applicable / "NA" if non):</h6>
-                            <Form.Control className="appointment-form-label" type="text" placeholder={``} ref={work} required />
+                            <Form.Control className="appointment-form-label" type="text" placeholder={``} value={state.work} onChange={(e) => setState({...state, work: e.target.value})} required />
                         </div>
                     </div>
                     <div className="row-form">
@@ -136,7 +159,7 @@ const NewAppointmentComponent = () => {
                     <div className="row-form">
                         <div className="item-form">
                             <h6>Note:</h6>
-                            <Form.Control as="textarea" maxLength="30" className="appointment-form-label" type="text" placeholder={``} ref={note} style={{ height: '100px' }} />
+                            <Form.Control as="textarea" maxLength="30" className="appointment-form-label" type="text" placeholder={``} value={state.note} onChange={(e) => setState({...state, note: e.target.value})} required style={{ height: 'auto' }} />
                         </div>
                     </div>
                     <div className="questions-section">

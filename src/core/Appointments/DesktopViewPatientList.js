@@ -10,6 +10,7 @@ import AllAppointmentsComponent from './AllAppointments';
 import ApprovedAppointmentsComponent from './ApprovedAppointments';
 import HistoryAppointmentsComponent from './HistoryAppointments';
 import {isAuthenticated} from '../../auth'
+import AppointmentsComponent from './Appointments';
 
 
 
@@ -17,86 +18,98 @@ import {isAuthenticated} from '../../auth'
 const DesktopViewPatientList = ({state, handleShowModal, setState}) => {
 
 
-    const handleGetData = (value) => {
-        console.log({value})
-        // console.log(`schedule`, state.schedule)
-        // setState({...state, appointmentTabs: value})
-        if(window !== 'undefined') {
-            localStorage.setItem('appointmentTab', value)
-        }
-        if(value === 0) {
-            appointmentList(localStorage.getItem('allAppointmentRange'), isAuthenticated())
-            .then(data => {
-                console.log(data.appointments)
-                if(data.status === "FAILED") {
-                    return (
-                        setState({error: data.status})
-                    )
-                } else return setState({...state, appointments: data.appointments, loading: false})
-            })
-        } else if(value === 1) {
-            approvedAppointmentList(localStorage.getItem('approvedAppointmentRange'), isAuthenticated())
-            .then(data => {
-                console.log(data.appointments)
-                if(data.status === "FAILED") {
-                    return (
-                        setState({error: data.status})
-                    )
-                } else return setState({...state, approvedAppointments: data.appointments, loading: false})
-            })
-        } else if(value === 2) {
-            appointmentHistoryList('all', isAuthenticated())
-            .then(data => { 
-                console.log(data.appointments)
-                if(data.status === "FAILED") {
-                    return (
-                        setState({error: data.status})
-                    )
-                } else return setState({...state, historyAppointments: data.appointments, loading: false})
-            })
-        }
-    }
+    // const handleGetData = (value) => {
+    //     console.log({value})
+    //     // console.log(`schedule`, state.schedule)
+    //     // setState({...state, appointmentTabs: value})
+    //     if(window !== 'undefined') {
+    //         localStorage.setItem('appointmentTab', value)
+    //     }
+    //     if(value === 0) {
+    //         appointmentList(localStorage.getItem('allAppointmentRange'), isAuthenticated())
+    //         .then(data => {
+    //             console.log(data.appointments)
+    //             if(data.status === "FAILED") {
+    //                 return (
+    //                     setState({error: data.status})
+    //                 )
+    //             } else return setState({...state, appointments: data.appointments, loading: false})
+    //         })
+    //     } else if(value === 1) {
+    //         approvedAppointmentList(localStorage.getItem('approvedAppointmentRange'), isAuthenticated())
+    //         .then(data => {
+    //             console.log(data.appointments)
+    //             if(data.status === "FAILED") {
+    //                 return (
+    //                     setState({error: data.status})
+    //                 )
+    //             } else return setState({...state, approvedAppointments: data.appointments, loading: false})
+    //         })
+    //     } else if(value === 2) {
+    //         appointmentHistoryList('all', isAuthenticated())
+    //         .then(data => { 
+    //             console.log(data.appointments)
+    //             if(data.status === "FAILED") {
+    //                 return (
+    //                     setState({error: data.status})
+    //                 )
+    //             } else return setState({...state, historyAppointments: data.appointments, loading: false})
+    //         })
+    //     }
+    // }
 
-    const handleGetDataAllSchedule = (val) => {
-        console.log(`appointment tab`, localStorage.getItem('appointmentTab'))
-        console.log({val})
-        if(window !== 'undefined') {
-            localStorage.setItem('allAppointmentRange', val)
-        }
-        appointmentList(localStorage.getItem('allAppointmentRange'), isAuthenticated())
-        .then(data => {
-            console.log(data.appointments)
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } else return setState({...state, appointments: data.appointments, loading: false})
-        })
-    }
+    // const handleGetDataAllSchedule = (val) => {
+    //     console.log(`appointment tab`, localStorage.getItem('appointmentTab'))
+    //     console.log({val})
+    //     if(window !== 'undefined') {
+    //         localStorage.setItem('allAppointmentRange', val)
+    //     }
+    //     appointmentList(localStorage.getItem('allAppointmentRange'), isAuthenticated())
+    //     .then(data => {
+    //         console.log(data.appointments)
+    //         if(data.status === "FAILED") {
+    //             return (
+    //                 setState({error: data.status})
+    //             )
+    //         } else return setState({...state, appointments: data.appointments, loading: false})
+    //     })
+    // }
 
-    const handleGetDataApprovedSchedule = (val) => {
-        console.log(`appointment tab`, localStorage.getItem('appointmentTab') == 0)
-        console.log({val})
+    // const handleGetDataApprovedSchedule = (val) => {
+    //     console.log(`appointment tab`, localStorage.getItem('appointmentTab') == 0)
+    //     console.log({val})
         
-        if(window !== 'undefined') {
-            localStorage.setItem('approvedAppointmentRange', val)
-        }
-        approvedAppointmentList(localStorage.getItem('approvedAppointmentRange'), isAuthenticated())
-        .then(data => {
-            console.log(data.appointments)
-            if(data.status === "FAILED") {
-                return (
-                    setState({error: data.status})
-                )
-            } else return setState({...state, approvedAppointments: data.appointments, loading: false})
-        })
-    }
+    //     if(window !== 'undefined') {
+    //         localStorage.setItem('approvedAppointmentRange', val)
+    //     }
+    //     approvedAppointmentList(localStorage.getItem('approvedAppointmentRange'), isAuthenticated())
+    //     .then(data => {
+    //         console.log(data.appointments)
+    //         if(data.status === "FAILED") {
+    //             return (
+    //                 setState({error: data.status})
+    //             )
+    //         } else return setState({...state, approvedAppointments: data.appointments, loading: false})
+    //     })
+    // }
+
+    // const handleGetHistory = () => {
+    //     appointmentHistoryList('all', isAuthenticated())
+    //     .then(data => { 
+    //         console.log(data.appointments)
+    //         if(data.status === "FAILED") {
+    //             return (
+    //                 setState({error: data.status})
+    //             )
+    //         } else return setState({...state, historyAppointments: data.appointments, loading: false})
+    //     })
+    // }
     
 
-
+    
     return (
         <div>
-            <Tabs forceRenderTabPanel defaultIndex={localStorage.getItem('appointmentTab')}>
+            {/* <Tabs forceRenderTabPanel defaultIndex={localStorage.getItem('appointmentTab')}>
                 <TabList>
                     <Tab onClick={() => handleGetData(0)}>All Booked</Tab>
                     <Tab onClick={() => handleGetData(1)}>Approved</Tab>
@@ -128,17 +141,11 @@ const DesktopViewPatientList = ({state, handleShowModal, setState}) => {
                 </TabPanel>
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
-                        {/* <TabList>
-                            <Tab onClick={() => handleGetDataApprovedSchedule('all')}>All</Tab>
-                            <Tab onClick={() => handleGetDataApprovedSchedule('today')}>Today</Tab>
-                            <Tab onClick={() => handleGetDataApprovedSchedule('week')}>Week</Tab>
-                            <Tab onClick={() => handleGetDataApprovedSchedule('2weeks')}>2 Weeks</Tab>
-                            <Tab onClick={() => handleGetDataApprovedSchedule('month')}>Month</Tab>
-                        </TabList> */}
                         <HistoryAppointmentsComponent state={state} handleShowModal={handleShowModal} />
                     </Tabs>
                 </TabPanel>
-            </Tabs>
+            </Tabs> */}
+            <AppointmentsComponent state={state} setState={setState} />
         </div>
     )
 }

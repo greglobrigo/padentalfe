@@ -55,7 +55,7 @@ const Menu = ({history}) => {
                         {/* <Link className="nav-link" style={isActive(history, '/users')} to="/users">Users</Link> */}
                         <Link className="nav-link" style={isActive(history, '/services')} to="/services">Services</Link>
                         {isAuthenticated() && <Link className="nav-link" style={isActive(history, '/appointments')} to="/appointments">My Appointments</Link> }
-                        {isAuthenticated() && <Link className="nav-link" style={isActive(history, '/appointments/new')} to="/appointments/new">Schedule New Appointment</Link> }
+                        {isAuthenticated().patient_email && <Link className="nav-link" style={isActive(history, '/appointments/new')} to="/appointments/new">Schedule New Appointment</Link> }
                         {isAuthenticated() ?
                         <div className="accounts">
                             {/* <Link className="nav-link" style={isActive(history, '/signout')} to="/signin">Sign out</Link> */}

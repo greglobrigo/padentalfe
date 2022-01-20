@@ -29,3 +29,10 @@
 label.btn.btn-outline-success {
     border-radius: 0px;
 }
+.modal-content {
+    width: auto !important;
+    margin: auto;
+}
+.modal-body {
+    height: auto;
+}

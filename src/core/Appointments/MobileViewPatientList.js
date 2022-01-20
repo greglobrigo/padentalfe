@@ -8,15 +8,12 @@ import {FaRegAddressBook} from 'react-icons/fa'
 import {BsFillTelephoneFill, BsCalendarDateFill} from 'react-icons/bs'
 import Gif_loading from '../../images/gif_loading.gif'
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Moment from 'react-moment';
 import {Tabs, Tab} from 'react-bootstrap';
 
 
 const MobileViewPatientListComponent = ({state, handleShowModal}) => {
     const [page, setPage] = useState(1)
-    const notify = () => toast("Wow so easy!");
 
 
     return (
@@ -39,7 +36,7 @@ const MobileViewPatientListComponent = ({state, handleShowModal}) => {
                                             <BsFillTelephoneFill className="mobile-view-patient-details-icon" />Phone Number: {appointment.contact_number}
                                         </Card.Text>
                                         <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
-                                            <BsCalendarDateFill className="mobile-view-patient-details-icon" />Preferred Date: {" "}<Moment format="MM/DD/YY">{appointment.preferred_date}</Moment>
+                                            <BsCalendarDateFill className="mobile-view-patient-details-icon" />Preferred Date: {" "}<Moment format="MM/DD/YYYY">{appointment.preferred_date}</Moment>
                                         </Card.Text>
                                         <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
                                             <BiTime className="mobile-view-patient-details-icon" />Preferred Time: {" "}<Moment format="LT">{appointment.preferred_time}</Moment>
@@ -98,7 +95,7 @@ const MobileViewPatientListComponent = ({state, handleShowModal}) => {
                                             <BsFillTelephoneFill className="mobile-view-patient-details-icon" />Phone Number: {appointment.contact_number}
                                         </Card.Text>
                                         <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
-                                            <BsCalendarDateFill className="mobile-view-patient-details-icon" />Preferred Date: {" "}<Moment format="MM/DD/YY">{appointment.preferred_date}</Moment>
+                                            <BsCalendarDateFill className="mobile-view-patient-details-icon" />Preferred Date: {" "}<Moment format="MM/DD/YYYY">{appointment.preferred_date}</Moment>
                                         </Card.Text>
                                         <Card.Text style={{fontFamily: "Open Sans, Sans-serif", display: 'flex', alignItems: 'center'}}>
                                             <BiTime className="mobile-view-patient-details-icon" />Preferred Time: {" "}<Moment format="LT">{appointment.preferred_time}</Moment>
@@ -141,12 +138,7 @@ const MobileViewPatientListComponent = ({state, handleShowModal}) => {
                         })}
                     </Tab>
             </Tabs>
-                
-            {/* <ToastComponent showA={showA}/> */}
-            {/* <div>
-                <button onClick={notify}>Notify!</button>
-                <ToastContainer />
-            </div> */}
+            
         </div>
     )
 }
