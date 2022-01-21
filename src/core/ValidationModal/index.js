@@ -17,7 +17,7 @@ const ValidationModalComponent = (props) => {
     const getAppointmentList = (state, setState) => {
         appointmentList('all', isAuthenticated())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if(data.status === "FAILED") {
                     return (
                         setState({error: data.status})

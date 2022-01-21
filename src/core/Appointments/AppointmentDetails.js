@@ -13,11 +13,11 @@ const AppointmentDetailsComponent = ({appointment, setValidation, state, setStat
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(appointment.id)
+        // console.log(appointment.id)
         await addComment(appointment.id, comment.current.value, state, setState)
         appointmentList('all', isAuthenticated())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.status === "FAILED") {
                 return (
                     setState({error: data.status})

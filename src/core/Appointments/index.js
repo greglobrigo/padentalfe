@@ -40,7 +40,7 @@ const AppointmentsComponent = (props) => {
         if(isAuthenticated().admin_email){
             appointmentList('all', isAuthenticated())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if(data.status === "FAILED") {
                     return (
                         setState({error: data.status})
@@ -50,7 +50,7 @@ const AppointmentsComponent = (props) => {
         } else {
             appointmentHistoryList('all', isAuthenticated())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if(data.status === "FAILED") {
                     return (
                         setState({error: data.status})
@@ -92,7 +92,6 @@ const AppointmentsComponent = (props) => {
                 loading: false
             })
         } else if(val === 'add-appointment') {
-            console.log('testttttt')
             setState({...state, 
                 title: 'New Appointment',
                 modalShow: true,

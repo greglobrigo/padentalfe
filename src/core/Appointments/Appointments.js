@@ -92,7 +92,7 @@ const AppointmentsComponent = ({state, setState}) => {
             setState({loading: true})
             appointmentList('all', isAuthenticated())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if(data.status === "FAILED") {
                     return (
                         setState({error: data.status})
