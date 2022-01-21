@@ -1,5 +1,10 @@
 import React from 'react'
 import {Row, Col, Button} from 'react-bootstrap';
+import Doctor_1 from '../../images/2.jpg'
+import Doctor_2 from '../../images/11.jpg'
+import Doctor_3 from '../../images/37.jpg'
+import Doctor_4 from '../../images/facility_13.jpg'
+import Doctor_5 from '../../images/facility_3.jpg'
 
 
 const Services = () => {
@@ -10,7 +15,7 @@ const Services = () => {
                     <h1 className="profession-clinic-subtitle">Services</h1>
                     <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
                     <Button variant="primary" className="button">more services</Button>
-                    <div className="services-card-container">
+                    <div className="services-card-container" style={{backgroundImage: `url(${Doctor_1})`}}>
                         <div className="services-second-bg-overlay">
                             <h5 className="services-title">Service 1</h5>
                             <div className="services-subtitle">lorem ipsum dolor sit amet, consectetur adip</div>
@@ -18,13 +23,13 @@ const Services = () => {
                     </div>
                 </Col>
                 <Col md={4} className="services-first-col-card-container">
-                    <div className="services-card-container">
+                    <div className="services-card-container" style={{backgroundImage: `url(${Doctor_2})`}}>
                         <div className="services-second-bg-overlay">
                             <h5 className="services-title">Service 1</h5>
                             <div className="services-subtitle">lorem ipsum dolor sit amet, consectetur adip</div>
                         </div>
                     </div>
-                    <div className="services-card-container">
+                    <div className="services-card-container" style={{backgroundImage: `url(${Doctor_3})`}}>
                         <div className="services-second-bg-overlay">
                             <h5 className="services-title">Service 1</h5>
                             <div className="services-subtitle">lorem ipsum dolor sit amet, consectetur adip</div>
@@ -32,13 +37,13 @@ const Services = () => {
                     </div>
                 </Col>
                 <Col md={4} className="services-second-col-card-container">
-                    <div className="services-card-container">
+                    <div className="services-card-container" style={{backgroundImage: `url(${Doctor_4})`}}>
                         <div className="services-second-bg-overlay">
                             <h5 className="services-title">Service 1</h5>
                             <div className="services-subtitle">lorem ipsum dolor sit amet, consectetur adip</div>
                         </div>
                     </div>
-                    <div className="services-card-container">
+                    <div className="services-card-container" style={{backgroundImage: `url(${Doctor_5})`}}>
                         <div className="services-second-bg-overlay">
                             <h5 className="services-title">Service 1</h5>
                             <div className="services-subtitle">lorem ipsum dolor sit amet, consectetur adip</div>

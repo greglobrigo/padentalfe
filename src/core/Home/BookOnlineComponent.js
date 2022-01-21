@@ -1,7 +1,7 @@
 import React from 'react'
 import {Row, Col, Button, Card} from 'react-bootstrap';
 import {IoIosArrowDroprightCircle} from 'react-icons/io'
-import DoctorImage from '../../images/doctor.jpg'
+import DoctorImage from '../../images/30.jpg'
 import {Link} from 'react-router-dom'
 
 

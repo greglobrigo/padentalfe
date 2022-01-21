@@ -266,7 +266,7 @@
 
 /* Services */
 .services-card-container {
-  background-image: url(https://dentino.elipso.site/wp-content/uploads/sites/10/2020/08/professional-dentist-using-modern-technologies-in-treatment.jpg);
+  /* background-image: url('./images/doctor1.png'); */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

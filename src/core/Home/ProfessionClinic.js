@@ -1,5 +1,5 @@
 import React from 'react'
-import Profession_clinic_1 from '../../images/profession-clinic-1.jpg'
+import Profession_clinic_1 from '../../images/5.jpg'
 import Profession_clinic_2 from '../../images/profession-clinic-2.jpg'
 import {Row, Col} from 'react-bootstrap';
 
