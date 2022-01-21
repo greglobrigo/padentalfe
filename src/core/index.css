@@ -64,5 +64,5 @@ button#dropdown-menu-align-end {
     padding: 0;
 }
 .dropdown-item.active, .dropdown-item:active {
-    background-color: unset;
+    background-color: unset !important;
 }

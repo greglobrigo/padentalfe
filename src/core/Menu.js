@@ -64,7 +64,7 @@ const Menu = ({history}) => {
                                 <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
                                 <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
                                 <Dropdown.Divider /> */}
-                                <Dropdown.Item eventKey="4"><Link className="nav-link" style={isActive(history, '/signup'), {cursor: 'pointer', paddingLeft: '0.5rem'}} onClick={() => handleSignout('signout')}>Sign out</Link></Dropdown.Item>
+                                <Dropdown.Item eventKey="4"><Link className="nav-link" style={{cursor: 'pointer', paddingLeft: '0.5rem'}} onClick={() => handleSignout('signout')}>Sign out</Link></Dropdown.Item>
                             </DropdownButton>
                         </div>
                         :
