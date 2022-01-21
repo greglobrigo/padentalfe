@@ -183,7 +183,8 @@ const AppointmentsComponent = ({state, setState}) => {
                                         <div className="appointment-main-second-detail">
                                             <div className="appointment-row"><h6 className="appointments-label">Patient name:</h6><h5 className="appointments-detail">{appointment?.patient_name}</h5></div>
                                             <div className="appointment-row"><h6 className="appointments-label">Contact no:</h6><h5 className="appointments-detail">{appointment.contact_number}</h5></div>
-                                            <div className="appointment-row"><h6 className="appointments-label">Comment:</h6><h5 className="appointments-detail">{appointment.comment}</h5></div>
+                                            {appointment?.comment !== null && <div className="appointment-row"><h6 className="appointments-label">Comment:</h6><h5 className="appointments-detail">{appointment.comment}</h5></div>}
+                                            {isAuthenticated().admin_email && (
                                             <div className="appointment-row">
                                                 {appointment.status === 'Cancelled' ? '' :
                                                 (<><h6 className="appointments-label">Status:</h6>
@@ -192,7 +193,8 @@ const AppointmentsComponent = ({state, setState}) => {
                                                     <Button style={{background: '#FF0000', border: 'none'}} onClick={() => handleSelectStatus('cancel', appointment)}>Cancel</Button> 
                                                     {appointment.status === 'Rescheduled' ? '' : <> | <Button style={{background: 'purple', border: 'none'}} onClick={() => handleSelectStatus('reschedule', appointment)}>Reschedule</Button></>}
                                                 </h5></>)}
-                                            </div>
+                                            </div>)
+                                            }
                                         </div>
                                     </div>
                                 </div>

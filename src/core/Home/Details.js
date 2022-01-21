@@ -35,7 +35,7 @@ const DetailsComponent = () => {
                                     </div>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
                                         <h6 className="details-title">Phone</h6>
-                                        <p className="sub-title" style={{marginBottom: 'unset'}}>+63 917 162 5424</p>
+                                        <a className="sub-title" rel="noreferrer" style={{marginBottom: 'unset'}} href="tel: +63 917 162 5424">+63 917 162 5424</a>
                                     </div>
                                 </div>
                                 <div className="details-main">
@@ -53,7 +53,7 @@ const DetailsComponent = () => {
                                     </div>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
                                         <h6 className="details-title">Email </h6>
-                                        <p className="sub-title" style={{marginBottom: 'unset'}}>antiqueradentalclinic@gmail.com</p>
+                                        <a className="sub-title" rel="noreferrer" style={{marginBottom: 'unset'}} href="mailto: antiqueradentalclinic@gmail.com" >antiqueradentalclinic@gmail.com</a>
                                     </div>
                                 </div>
                             </div>
@@ -65,21 +65,21 @@ const DetailsComponent = () => {
                         <Row>
                             <Col>
                                 <h6 className="details-title">Quick Links</h6>
-                                <Link className="nav-link" to="#">
+                                <Link className="nav-link" to="/services">
                                     <p className="sub-title details-desc">Our Services</p>
                                 </Link>
-                                <Link className="nav-link" to="#">
+                                <a className="nav-link" rel="noreferrer" href="https://www.facebook.com/antiqueradentalclinic/about/?ref=page_internal" target="_blank">
                                     <p className="sub-title details-desc">About Antiquera Dental Clinic</p>
-                                </Link>
+                                </a>
                                 {/* <Link className="nav-link">
                                     <p className="sub-title details-desc">Our Contacts</p>
                                 </Link> */}
                             </Col>
                             <Col>
                                 <h6 className="details-title">Help Center</h6>
-                                <Link className="nav-link" to="#">
+                                {/* <Link className="nav-link" to="#">
                                     <p className="sub-title details-desc">Patient Support</p>
-                                </Link>
+                                </Link> */}
                                 <a className="nav-link" rel="noreferrer" href="https://m.me/antiqueradentalclinic" target="_blank">
                                     <p className="sub-title details-desc">Direct message us</p>
                                 </a>

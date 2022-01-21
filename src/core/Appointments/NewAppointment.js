@@ -4,6 +4,9 @@ import {Form, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {bookAppointment} from '../api/api'
 import {isAuthenticated} from '../../auth'
+import {notifyWarning} from '../../helpers'
+
+
 
 
 
@@ -17,21 +20,23 @@ const NewAppointmentComponent = () => {
         contact: '',
         preferred_time: '',
         preferred_date: '',
-        have_cough: 'No',
-        have_colds: 'No', 
-        have_diarrhea: 'No',
-        have_sorethroat: 'No',
-        have_bodyache: 'No',
-        have_headache: 'No',
-        have_hightemp: 'No',
-        have_difficultbreathing: 'No',
-        have_fatigue: 'No',
-        have_travelledPast14days: 'No',
-        have_travelledWhereCovid: 'No',
-        have_vicinityWhereCovid: 'No',
+        have_cough: '',
+        have_colds: '', 
+        have_diarrhea: '',
+        have_sorethroat: '',
+        have_bodyache: '',
+        have_headache: '',
+        have_hightemp: '',
+        have_difficultbreathing: '',
+        have_fatigue: '',
+        have_travelledPast14days: '',
+        have_travelledWhereCovid: '',
+        have_vicinityWhereCovid: '',
         redirectToAppointments: false
     });
 
+
+    
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -57,7 +62,8 @@ const NewAppointmentComponent = () => {
             have_travelledWhereCovid,
             have_vicinityWhereCovid} = state;
 
-        const casePatient_name = patient_name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
+        const casePatient_name = patient_name?.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
+
 
         const patient_data = {
             patient_name: casePatient_name,
@@ -68,22 +74,21 @@ const NewAppointmentComponent = () => {
             note,
             preferred_time,
             preferred_date,
-            have_cough: have_cough === 'Yes',
-            have_colds: have_colds === 'Yes', 
-            have_diarrhea: have_diarrhea === 'Yes',
-            have_sorethroat: have_sorethroat === 'Yes',
-            have_bodyache: have_bodyache === 'Yes',
-            have_headache: have_headache === 'Yes',
-            have_hightemp: have_hightemp === 'Yes',
-            have_difficultbreathing: have_difficultbreathing === 'Yes',
-            have_fatigue: have_fatigue === 'Yes',
-            have_travelledPast14days: have_travelledPast14days === 'Yes',
-            have_travelledWhereCovid: have_travelledWhereCovid === 'Yes',
-            have_vicinityWhereCovid: have_vicinityWhereCovid === 'Yes',
+            have_cough: have_cough === '' ? '' : (have_cough === 'Yes'),
+            have_colds: have_colds === '' ? '' : (have_colds === 'Yes'), 
+            have_diarrhea: have_diarrhea === '' ? '' : (have_diarrhea === 'Yes'),
+            have_sorethroat: have_sorethroat === '' ? '' : (have_sorethroat === 'Yes'),
+            have_bodyache: have_bodyache === '' ? '' : (have_bodyache === 'Yes'),
+            have_headache: have_headache === '' ? '' : (have_headache === 'Yes'),
+            have_hightemp: have_hightemp === '' ? '' : (have_hightemp === 'Yes'),
+            have_difficultbreathing: have_difficultbreathing === '' ? '' : (have_difficultbreathing === 'Yes'),
+            have_fatigue: have_fatigue === '' ? '' : (have_fatigue === 'Yes'),
+            have_travelledPast14days: have_travelledPast14days === '' ? '' : (have_travelledPast14days === 'Yes'),
+            have_travelledWhereCovid: have_travelledWhereCovid === '' ? '' : (have_travelledWhereCovid === 'Yes'),
+            have_vicinityWhereCovid: have_vicinityWhereCovid === '' ? '' : (have_vicinityWhereCovid === 'Yes'),
         }
-
-        bookAppointment(patient_data, isAuthenticated(), state, setState)
-
+        bookAppointment(patient_data, isAuthenticated(), state, setState, notifyWarning)
+        
     }
 
     const disablePastDate = () => {

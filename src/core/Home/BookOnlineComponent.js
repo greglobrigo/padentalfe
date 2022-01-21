@@ -19,7 +19,7 @@ const BookOnlineComponent = () => {
                                 <Card.Title className="card-title">Our Services</Card.Title>
                                 <Card.Text className="card-subtitle">Lorem ipsum dolor sit amet, consectetur</Card.Text>
                                 <div className="home-card-arrow-btn pulse" style={{position: 'absolute'}}>
-                                    <IoIosArrowDroprightCircle />
+                                    <Link to="/services"><IoIosArrowDroprightCircle style={{color: 'rgba(78, 180, 81, 1)'}}/></Link>
                                 </div>
                             </Card>
                             <Card className="header-cards" style={{ width: '18rem' }}>

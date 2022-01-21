@@ -8,7 +8,7 @@ const ProfessionClinic = () => {
         <div className="container home-container-margin">
             <div className="profession-clinic-header">
                 <h1 className="title profession-clinic-title">Antiquera</h1>
-                <h1 className="title profession-clinic-subtitle">Profession Clinic</h1>
+                <h1 className="title profession-clinic-subtitle">Dental Clinic</h1>
             </div>
             <Row style={{display: 'flex', alignItems: 'center'}}>
                 <Col md={4}>
