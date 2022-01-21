@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Moment from 'react-moment'
-import debounce from 'lodash'
+import debounce from 'lodash.debounce'
 import {IoMdArrowDropdown, IoMdArrowDropup} from 'react-icons/io'
 import {Dropdown, DropdownButton, Card, InputGroup, FormControl, Button} from 'react-bootstrap'
 import ValidationModalComponent from '../../core/ValidationModal'
@@ -10,12 +10,11 @@ import {isAuthenticated} from '../../auth'
 
 
 const getFilteredItems = (query, items) => {
-    // console.log({items})
+    console.log({items})
     if(!query) {
         return items    
     }
-
-    return items.filter((appointment) => appointment.status.includes(query.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())))
+    return items.filter((appointment) => appointment.patient_name.includes(query.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())))
 }
 
 const AppointmentsComponent = ({state, setState}) => {
@@ -43,11 +42,11 @@ const AppointmentsComponent = ({state, setState}) => {
     }
 
 
-    const filteredItems = getFilteredItems(query, historyAppointments)
     const [orderedAppointments, setIsOrderedAppointments] = useState(historyAppointments)
+    const filteredItems = getFilteredItems(query, orderedAppointments)
 
-    // const updateQuery = e => setQuery(e?.target?.value)
-    // const debounceOnChange = 
+    const updateQuery = e => setQuery(e?.target?.value)
+    const debounceOnChange = debounce(updateQuery, 200)
 
     const handleOrderbyDate = () => {
         setIsOrdered(!isOrdered)
@@ -115,20 +114,22 @@ const AppointmentsComponent = ({state, setState}) => {
     return (
         <div className="appointment-cards-container">
             {/* <h1>Appointments</h1> */}
-            {/* <InputGroup className="mb-3">
-                <FormControl
-                    placeholder="Status"
-                    aria-describedby="basic-addon2"
-                    onChange={e => setQuery(e.target.value)}
-                />
-            </InputGroup> */}
-            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+            
+            <div style={{display: 'flex', justifyContent: 'space-between', gap: '0.5rem'}}>
                 <div style={{display: 'flex', gap: '0.5rem'}}>
                     {isAuthenticated().admin_email && <><Button style={{background: '#062d92', color: '#fff', border: '1px solid #acacac'}} onClick={() => handleGetAll('All')}>All</Button>
                     <Button style={{background: '#02B602', border: 'none'}} onClick={() => handleGetAll('Approved')}>Show All Confirmed</Button></>}
                     {/* <Button style={{background: '#FF0000', border: 'none'}} >Cancelled</Button>
                     <Button style={{background: 'purple', border: 'none'}} >Rescheduled</Button> */}
                 </div>
+                {isAuthenticated().admin_email && 
+                (<InputGroup>
+                    <FormControl
+                        placeholder="Search patient name"
+                        aria-describedby="basic-addon2"
+                        onChange={debounceOnChange}
+                    />
+                </InputGroup>)}
                 <Button variant="primary" style={{background: 'inherit', color: '#000', border: '1px solid #000'}} onClick={() => handleOrderbyDate()}>Sort by Date{isOrdered ? <IoMdArrowDropdown /> : <IoMdArrowDropup />}</Button>
             </div>
                 {/* {historyAppointments.map((appointment, index) => {
@@ -162,7 +163,7 @@ const AppointmentsComponent = ({state, setState}) => {
                     })
                 } */}
 
-                {orderedAppointments.map((appointment, index) => {
+                {filteredItems.map((appointment, index) => {
                         return (
                             <Card key={index}>
                                 <div className="appointment-card" >
