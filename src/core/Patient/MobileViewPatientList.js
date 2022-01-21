@@ -7,7 +7,6 @@ import {CgDetailsLess} from 'react-icons/cg'
 import {FaRegAddressBook} from 'react-icons/fa'
 import {BsFillTelephoneFill} from 'react-icons/bs'
 import Gif_loading from '../../images/gif_loading.gif'
-import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 
@@ -17,18 +16,6 @@ const MobileViewPatientListComponent = ({PatientsList, handleShowModal}) => {
 
     return (
         <div className="container mt-5 mb-5" >
-            <InfiniteScroll
-                style={{ padding: '1rem' }}
-                dataLength={PatientsList.length} 
-                next={() => setPage(page + 1)}
-                hasMore={true}
-                // loader={
-                //     <div className="loading-container">
-                //         <img src={Gif_loading} alt="loading" style={{width: '100%'}}/>
-                //         <h6 style={{fontWeight: 'bold'}}>Loading</h6>
-                //     </div>
-                // }
-            >
                 {PatientsList.map((patient, index) => {
                     return (
                         <Card key={index} className="mobile-view-patient-details-container mb-3" md={6}>
@@ -83,7 +70,6 @@ const MobileViewPatientListComponent = ({PatientsList, handleShowModal}) => {
                         </Card>
                     )
                 })}
-            </InfiniteScroll>
         </div>
     )
 }

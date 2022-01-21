@@ -7,7 +7,6 @@ import {CgDetailsLess} from 'react-icons/cg'
 import {FaRegAddressBook} from 'react-icons/fa'
 import {BsFillTelephoneFill, BsCalendarDateFill} from 'react-icons/bs'
 import Gif_loading from '../../images/gif_loading.gif'
-import InfiniteScroll from 'react-infinite-scroll-component';
 import Moment from 'react-moment';
 import {Tabs, Tab} from 'react-bootstrap';
 

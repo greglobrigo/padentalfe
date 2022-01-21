@@ -10,11 +10,11 @@ import {isAuthenticated} from '../../auth'
 
 
 const getFilteredItems = (query, items) => {
-    console.log({items})
     if(!query) {
         return items    
     }
-    return items.filter((appointment) => appointment.patient_name.includes(query.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())))
+    // return items.filter((appointment) => appointment.patient_name.includes(query.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())))
+    return items.filter((appointment) => Object.values(appointment).join(" ").toLowerCase().includes(query.toLowerCase()));
 }
 
 const AppointmentsComponent = ({state, setState}) => {
@@ -125,7 +125,7 @@ const AppointmentsComponent = ({state, setState}) => {
                 {isAuthenticated().admin_email && 
                 (<InputGroup>
                     <FormControl
-                        placeholder="Search patient name"
+                        placeholder="Search"
                         aria-describedby="basic-addon2"
                         onChange={debounceOnChange}
                     />
