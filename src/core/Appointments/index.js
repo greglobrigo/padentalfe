@@ -135,7 +135,6 @@ const AppointmentsComponent = (props) => {
                         data={state.data}
                         onHide={() => setState({...state, modalShow: false})}
                     />
-       
             </div>
         </>
     )
