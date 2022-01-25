@@ -26,12 +26,12 @@ const ValidationModalComponent = (props) => {
             })
     }
 
-    const handleConfirm = async(title) => {
+    const handleConfirm = async(title, id) => {
         if(title === 'Approve') {
-            await updateAppointmentStatus(props.id, 'Confirmed', state, setState)
+            await updateAppointmentStatus(id, 'Confirmed', state, setState)
             getAppointmentList(state, setState)
         } else if (title === 'Cancel') {
-            await updateAppointmentStatus(props.id, 'Cancelled', state, setState)
+            await updateAppointmentStatus(id, 'Cancelled', state, setState)
             getAppointmentList(state, setState)
         } else if (title === 'Show All Confirmed') {
             await approvedAppointmentList(showAllConfirmed, state, setState)
@@ -39,7 +39,7 @@ const ValidationModalComponent = (props) => {
         setValidation({modalShow: false})
     }
 
-
+    
     const handleSortConfirm = (e) => {
         setShowAllConfirmed(e.target.value)
     }
@@ -59,8 +59,8 @@ const ValidationModalComponent = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <p>
-                        {title === 'Approve' && `Do you really want to to approve ${appointment.patient_name}'s account?`}
-                        {title === 'Cancel' && `Do you really want to to cancel ${appointment.patient_name}'s account?`}
+                        {title === 'Approve' && `Do you really want to approve ${appointment.patient_name}'s appointment?`}
+                        {title === 'Cancel' && `Do you really want to cancel ${appointment.patient_name}'s appointment?`}
                         {title === 'Reschedule' && (
                             <AppointmentDetailsComponent 
                                 appointment={appointment} 
@@ -84,7 +84,7 @@ const ValidationModalComponent = (props) => {
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
-                    {title === 'Reschedule' ? '' : <Button onClick={() => handleConfirm(title)} style={{background: confirmButtonClr}}>Confirm</Button>}
+                    {title === 'Reschedule' ? '' : <Button onClick={() => handleConfirm(title, appointment?.id)} style={{background: confirmButtonClr}}>Confirm</Button>}
                     <Button onClick={() => setValidation({modalShow: false})} variant="secondary">Cancel</Button>
                 </Modal.Footer>
             </div>

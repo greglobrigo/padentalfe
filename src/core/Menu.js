@@ -48,7 +48,7 @@ const Menu = ({history}) => {
                     <Navbar.Brand href="/">
                         <img src={DentalLogo} alt="dental-clinic" className="logo"/>
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="hamburger-menu" style={{marginRight: "0.5rem"}} />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto" style={{width: '100%'}}>
                         <Link className="nav-link" style={isActive(history, '/')} to="/">Home</Link>

@@ -80,13 +80,13 @@ const AppointmentDetailsComponent = ({appointment, setValidation, state, setStat
         <div className="row-form">
             <div className="item-form">
                 <h6>Note:</h6>
-                <Form.Control as="textarea" maxLength="30" className="appointment-form-label" type="text" placeholder={``} value={appointment.note} style={{ height: 'auto' }} readOnly />
+                <Form.Control as="textarea" maxLength="120" className="appointment-form-label" type="text" placeholder={``} value={appointment.note} style={{ height: 'auto' }} readOnly />
             </div>
         </div>
         <div className="row-form">
             <div className="item-form">
                 <h6>Comment:</h6>
-                <Form.Control as="textarea" maxLength="30" className="appointment-form-label" type="text" placeholder={``} ref={comment} style={{ height: 'auto' }} />
+                <Form.Control as="textarea" maxLength="120" className="appointment-form-label" type="text" placeholder={``} ref={comment} style={{ height: 'auto' }} />
             </div>
         </div>
         <div className="questions-section">

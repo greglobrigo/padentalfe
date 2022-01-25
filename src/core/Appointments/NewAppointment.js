@@ -4,7 +4,7 @@ import {Form, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {bookAppointment} from '../api/api'
 import {isAuthenticated} from '../../auth'
-import {notifyWarning} from '../../helpers'
+import {notifyWarning, notifySuccess} from '../../helpers'
 
 
 
@@ -87,7 +87,12 @@ const NewAppointmentComponent = () => {
             have_travelledWhereCovid: have_travelledWhereCovid === '' ? '' : (have_travelledWhereCovid === 'Yes'),
             have_vicinityWhereCovid: have_vicinityWhereCovid === '' ? '' : (have_vicinityWhereCovid === 'Yes'),
         }
-        bookAppointment(patient_data, isAuthenticated(), state, setState, notifyWarning)
+
+        if(patient_data.preferred_time >= '09:00' && patient_data.preferred_time <= '17:00') {
+            bookAppointment(patient_data, isAuthenticated(), state, setState, notifyWarning, notifySuccess)
+        } else if (patient_data.preferred_time < '09:00' || patient_data.preferred_time > '17:00') {
+            notifyWarning('Please set time within clinic hours.')
+        }
         
     }
 
@@ -164,7 +169,7 @@ const NewAppointmentComponent = () => {
                     <div className="row-form">
                         <div className="item-form">
                             <h6>Note:</h6>
-                            <Form.Control as="textarea" maxLength="30" className="appointment-form-label" type="text" placeholder={``} value={state.note} onChange={(e) => setState({...state, note: e.target.value})} required style={{ height: 'auto' }} />
+                            <Form.Control as="textarea" maxLength="120" className="appointment-form-label" type="text" placeholder={``} value={state.note} onChange={(e) => setState({...state, note: e.target.value})} required style={{ height: 'auto' }} />
                         </div>
                     </div>
                     <div className="questions-section">

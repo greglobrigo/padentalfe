@@ -7,3 +7,9 @@ export const notifyWarning = (message) => {
         position: toast.POSITION.TOP_CENTER
     });
 }
+
+export const notifySuccess = (message) => {
+    toast.success(message, {
+        position: toast.POSITION.TOP_CENTER
+    });
+}

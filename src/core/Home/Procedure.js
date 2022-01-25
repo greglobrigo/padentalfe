@@ -25,7 +25,7 @@ const ProcedureComponent = () => {
                             <div className="procedure-col-desc">
                                 A. Wait for the approval of your desired schedule. 
                                 <br />
-                                B. You may check the status your scheduled appointment at the 'My Appointments' menu section.
+                                B. You may check the status of your scheduled appointment at the 'My Appointments' menu section.
                             </div>
                         </Col>
                         <Col md={4}>

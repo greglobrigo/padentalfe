@@ -71,7 +71,7 @@ export const appointmentHistoryList = (value, user) => {
 }
 
 
-export const bookAppointment = async(data, user, state, setState, notifyWarning) => {
+export const bookAppointment = async(data, user, state, setState, notifyWarning, notifySuccess) => {
     setState({...state, loading: true})
     await axios({
         method: 'POST',
@@ -88,12 +88,12 @@ export const bookAppointment = async(data, user, state, setState, notifyWarning)
     .then(data => {
         if(data.data.status === "FAILED") {
             return (
-                console.log(data),
                 setState({...state, error: data.status}),
                 notifyWarning(data.data.errors[0])
             )
         } else if (data.data.status === "SUCCESS") {
             return (
+                notifySuccess(data.data.message),
                 setState({...state,
                     patient_name: '', 
                     address: '',

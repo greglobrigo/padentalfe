@@ -24,7 +24,7 @@ const DetailsComponent = () => {
                                     <div className="details-icon">
                                         <MdLocationOn />
                                     </div>
-                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    <div className="details-content-container">
                                         <h6 className="details-title">Address</h6>
                                         <p className="sub-title" style={{marginBottom: 'unset'}}>Ground flr Hotel Rex Bldg., <br/>Aguinaldo St. Legazpi Philippines</p>
                                     </div>
@@ -33,7 +33,7 @@ const DetailsComponent = () => {
                                     <div className="details-icon">
                                         <BsFillTelephoneFill />
                                     </div>
-                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    <div className="details-content-container">
                                         <h6 className="details-title">Phone</h6>
                                         <a className="sub-title" rel="noreferrer" style={{marginBottom: 'unset'}} href="tel: +63 917 162 5424">+63 917 162 5424</a>
                                     </div>
@@ -42,7 +42,7 @@ const DetailsComponent = () => {
                                     <div className="details-icon">
                                         <MdAccessTimeFilled />
                                     </div>
-                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    <div className="details-content-container">
                                         <h6 className="details-title">Work Time</h6>
                                         <p className="sub-title" style={{marginBottom: 'unset'}}>Mon-Fri: 9:00AM-5:00PM</p>
                                     </div>
@@ -51,9 +51,9 @@ const DetailsComponent = () => {
                                     <div className="details-icon">
                                         <AiOutlineMail />
                                     </div>
-                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    <div className="details-content-container">
                                         <h6 className="details-title">Email </h6>
-                                        <a className="sub-title" rel="noreferrer" style={{marginBottom: 'unset'}} href="mailto: antiqueradentalclinic@gmail.com" >antiqueradentalclinic@gmail.com</a>
+                                        <a className="sub-title" rel="noreferrer" style={{marginBottom: 'unset'}} href="mailto:antiqueradentalclinic@gmail.com?subject=Hello I would like to make an appointment." >antiqueradentalclinic@gmail.com</a>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,8 @@ const DetailsComponent = () => {
                     </Col>
                     <Col md={6} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                         <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
-                            <Link to="/appointments/new"><Button variant="primary" className="button">Make an Appointment</Button></Link>
+                        {isAuthenticated().admin_email ? <Link to="/appointments"><Button variant="primary" className="button">My Appointments</Button></Link>
+                        : <Link to="/appointments/new"><Button variant="primary" className="button">Make an Appointment</Button></Link> }
                         <Row>
                             <Col>
                                 <h6 className="details-title">Quick Links</h6>

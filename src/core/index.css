@@ -66,3 +66,7 @@ button#dropdown-menu-align-end {
 .dropdown-item.active, .dropdown-item:active {
     background-color: unset !important;
 }
+
+.hamburger-menu:focus {
+    box-shadow: unset !important;
+}
