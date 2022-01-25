@@ -174,6 +174,19 @@ const AppointmentsComponent = ({state, setState}) => {
                                             <div className="appointment-row"><h6 className="appointments-label">Time:</h6><h5 className="appointments-detail">{moment(appointment.preferred_time).add(4, 'hours').format("hh:mm a")}</h5></div>
                                             <div className="appointment-row"><h6 className="appointments-label">Note:</h6><h5 className="appointments-detail appointment-detail-note">{appointment.note}</h5></div>
                                         {appointment?.comment !== null && <div className="appointment-main-second-detail-mobile"><div className="appointment-row"><h6 className="appointments-label">Comment:</h6><h5 className="appointments-detail appointment-detail-note">{appointment.comment}</h5></div></div>}
+                                        <div className="appointment-main-second-detail-mobile">
+                                            {isAuthenticated().admin_email && (
+                                                <div className="appointment-row">
+                                                    {appointment.status === 'Cancelled' ? '' :
+                                                    (<><h6 className="appointments-label">Status:</h6>
+                                                    <h5 className="appointments-detail" style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                                                        {appointment.status === 'Confirmed' || appointment.status === 'Rescheduled' ? '' : <Button style={{background: '#02B602', border: 'none'}} onClick={() => handleSelectStatus('approve', appointment)}>Approve</Button>}
+                                                        <Button style={{background: '#FF0000', border: 'none'}} onClick={() => handleSelectStatus('cancel', appointment)}>Cancel</Button> 
+                                                        {appointment.status === 'Rescheduled' ? '' : <> | <Button style={{background: 'purple', border: 'none'}} onClick={() => handleSelectStatus('reschedule', appointment)}>Reschedule</Button></>}
+                                                    </h5></>)}
+                                                </div>)
+                                            }
+                                        </div>
                                         </div>
                                         <div className="appointment-main-second-detail-mobile">
                                             <DropdownButton align="end" title="More Information" id="dropdown-menu-align-end">
