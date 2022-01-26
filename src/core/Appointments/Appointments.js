@@ -110,6 +110,17 @@ const AppointmentsComponent = ({state, setState}) => {
         
     }
 
+    const formatAMPM = (date) => {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return strTime;
+      }
+
     
     return (
         <div className="appointment-cards-container">
@@ -164,6 +175,38 @@ const AppointmentsComponent = ({state, setState}) => {
                 } */}
 
                 {filteredItems.map((appointment, index) => {
+                    let time = '';
+                    let hrs = '';
+
+                    if(appointment.preferred_time.substring(0, 2) === '13') {
+                        hrs = '1'
+                    } else if (appointment.preferred_time.substring(0, 2) === '14') {
+                        hrs = '2'
+                    } else if (appointment.preferred_time.substring(0, 2) === '15') {
+                        hrs = '3'
+                    } else if (appointment.preferred_time.substring(0, 2) === '16') {
+                        hrs = '4'
+                    } else if (appointment.preferred_time.substring(0, 2) === '17') {
+                        hrs = '5'
+                    } else if (appointment.preferred_time.substring(0, 2) === '18') {
+                        hrs = '6'
+                    } else if (appointment.preferred_time.substring(0, 2) === '19') {
+                        hrs = '7'
+                    } else if (appointment.preferred_time.substring(0, 2) === '20') {
+                        hrs = '8'
+                    } else if (appointment.preferred_time.substring(0, 2) === '21') {
+                        hrs = '9'
+                    } else if (appointment.preferred_time.substring(0, 2) === '22') {
+                        hrs = '10'
+                    } else if (appointment.preferred_time.substring(0, 2) === '23') {
+                        hrs = '11'
+                    } 
+
+                    if(appointment.preferred_time.substring(0, 2) >= 1 && appointment.preferred_time.substring(0, 2) < 12) {
+                        time = `${appointment.preferred_time.substring(0, 2)}:${appointment.preferred_time.substring(3, 5)} AM`
+                    } else {
+                        time = `${hrs}:${appointment.preferred_time.substring(3, 5)} PM`
+                    }
                         return (
                             <Card key={index}>
                                 <div className="appointment-card" >
@@ -171,7 +214,9 @@ const AppointmentsComponent = ({state, setState}) => {
                                     <div className="appointment-main-detail">
                                         <div className="appointment-main-first-detail">
                                             <div className="appointment-row"><h6 className="appointments-label">Date:</h6><h5 className="appointments-detail"><Moment format="MM/DD/YYYY">{appointment.preferred_date}</Moment></h5></div>
-                                            <div className="appointment-row"><h6 className="appointments-label">Time:</h6><h5 className="appointments-detail">{appointment.preferred_time}</h5></div>
+                                            <div className="appointment-row"><h6 className="appointments-label">Time:</h6><h5 className="appointments-detail">
+                                                {time}
+                                            </h5></div>
                                             <div className="appointment-row"><h6 className="appointments-label">Note:</h6><h5 className="appointments-detail appointment-detail-note">{appointment.note}</h5></div>
                                         {appointment?.comment !== null && <div className="appointment-main-second-detail-mobile"><div className="appointment-row"><h6 className="appointments-label">Comment:</h6><h5 className="appointments-detail appointment-detail-note">{appointment.comment}</h5></div></div>}
                                         <div className="appointment-main-second-detail-mobile">
