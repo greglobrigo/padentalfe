@@ -171,7 +171,7 @@ const AppointmentsComponent = ({state, setState}) => {
                                     <div className="appointment-main-detail">
                                         <div className="appointment-main-first-detail">
                                             <div className="appointment-row"><h6 className="appointments-label">Date:</h6><h5 className="appointments-detail"><Moment format="MM/DD/YYYY">{appointment.preferred_date}</Moment></h5></div>
-                                            <div className="appointment-row"><h6 className="appointments-label">Time:</h6><h5 className="appointments-detail">{moment(appointment.preferred_time).add(4, 'hours').format("hh:mm a")}</h5></div>
+                                            <div className="appointment-row"><h6 className="appointments-label">Time:</h6><h5 className="appointments-detail">{appointment.preferred_time}</h5></div>
                                             <div className="appointment-row"><h6 className="appointments-label">Note:</h6><h5 className="appointments-detail appointment-detail-note">{appointment.note}</h5></div>
                                         {appointment?.comment !== null && <div className="appointment-main-second-detail-mobile"><div className="appointment-row"><h6 className="appointments-label">Comment:</h6><h5 className="appointments-detail appointment-detail-note">{appointment.comment}</h5></div></div>}
                                         <div className="appointment-main-second-detail-mobile">
