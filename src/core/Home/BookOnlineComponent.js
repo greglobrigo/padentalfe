@@ -11,11 +11,11 @@ const BookOnlineComponent = () => {
         <div className="container home-container home-container-margin">
                 <Row>
                     <Col className="home-first-section" xs={12} lg={6}>
-                        <h1 className="title">Book online</h1>
-                        <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
+                        <h1 className="title">Your Dental Healthcare partner, in the heart of Albay.</h1>
+                        <p className="sub-title" style={{fontSize: '1.5rem', fontWeight: 'bold'}}>Book Online</p>
                         {isAuthenticated().admin_email ? <Link to="/appointments"><Button variant="primary" className="button">My Appointments</Button></Link>
                         : <Link to="/appointments/new"><Button variant="primary" className="button">Make an Appointment</Button></Link>}
-                        
+                        <p className="sub-title">Register and fill up an appointment form online.</p>
 
                         <div className="home-card-container">
                             <Card className="header-cards" style={{ width: '18rem' }}>
