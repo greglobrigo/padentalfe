@@ -173,6 +173,7 @@ const NewAppointmentComponent = () => {
                         </div>
                     </div>
                     <div className="questions-section">
+                        <h6 style={{textAlign: 'center'}}><i><span style={{fontWeight: 'bold', color: 'red'}}>WARNING:</span> DO NOT LIE ABOUT YOUR MEDICAL AND TRAVEL HISTORY. NON-DISCLOSURE OF MEDICAL AND TRAVEL HISTORY IS PUNISHABLE BY IMPRISONMENT (REPUBLIC ACT 11332)</i></h6>
                         <div className="questions-container">
                             <h6>1. INUUBO KA BA?(Do you have cough?): </h6>
                             <div className="row-form">

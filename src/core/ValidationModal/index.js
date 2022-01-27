@@ -63,6 +63,7 @@ const ValidationModalComponent = (props) => {
                         {title === 'Cancel' && `Do you really want to cancel ${appointment.patient_name}'s appointment?`}
                         {title === 'Reschedule' && (
                             <AppointmentDetailsComponent 
+                                title={title}
                                 appointment={appointment} 
                                 setValidation={setValidation} 
                                 state={state} 
@@ -80,6 +81,15 @@ const ValidationModalComponent = (props) => {
                                     <option value="month">Month</option>
                                 </Form.Select>
                             </Form>
+                        )}
+                        {title === 'View Details' && (
+                            <AppointmentDetailsComponent 
+                                title={title}
+                                appointment={appointment} 
+                                setValidation={setValidation} 
+                                state={state} 
+                                setState={setState} 
+                            />
                         )}
                     </p>
                 </Modal.Body>

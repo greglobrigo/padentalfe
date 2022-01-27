@@ -8,7 +8,7 @@ import {addComment, appointmentList} from '../api/api'
 
 
 
-const AppointmentDetailsComponent = ({appointment, setValidation, state, setState}) => {
+const AppointmentDetailsComponent = ({appointment, setValidation, state, setState, title}) => {
     const comment = useRef('')
 
     const handleSubmit = async(e) => {
@@ -27,11 +27,12 @@ const AppointmentDetailsComponent = ({appointment, setValidation, state, setStat
         setValidation({modalShow: false})
     }
 
+    
 
     return <form onSubmit={handleSubmit} >
     <div className="menu-title-container">
         <h1 className="title menu-title" >Patient Data</h1>
-        <Link to="#" ><Button className="button submit-button" type="submit" variant={`primary`} onClick={(e) => handleSubmit(e)}>Submit</Button></Link>
+        {title === "Reschedule" && <Link to="#" ><Button className="button submit-button" type="submit" variant={`primary`} onClick={(e) => handleSubmit(e)}>Submit</Button></Link>}
     </div>    
         <div className="row-form">
             <div className="item-form">
@@ -86,9 +87,10 @@ const AppointmentDetailsComponent = ({appointment, setValidation, state, setStat
         <div className="row-form">
             <div className="item-form">
                 <h6>Comment:</h6>
-                <Form.Control as="textarea" maxLength="120" className="appointment-form-label" type="text" placeholder={``} ref={comment} style={{ height: 'auto' }} />
+                <Form.Control as="textarea" maxLength="120" className="appointment-form-label" type="text" placeholder={``} ref={comment} style={{ height: 'auto' }} readOnly={(title === "View Details") && true}/>
             </div>
         </div>
+        {title === "View Details" &&
         <div className="questions-section">
             <div className="questions-container">
                 <h6>1. INUUBO KA BA?(Do you have cough?): </h6>
@@ -297,6 +299,7 @@ const AppointmentDetailsComponent = ({appointment, setValidation, state, setStat
                 </div>
             </div>
         </div>
+        }
     <br />
     </form>;
 };

@@ -83,6 +83,13 @@ const AppointmentsComponent = ({state, setState}) => {
                 background: 'purple',
                 appointment
             })
+        } else if (value === 'view') {
+            setValidation({
+                modalShow: true,
+                title: 'View Details',
+                background: '#5aafc4',
+                appointment
+            })
         }
     }
 
@@ -110,18 +117,8 @@ const AppointmentsComponent = ({state, setState}) => {
         
     }
 
-    const formatAMPM = (date) => {
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0'+minutes : minutes;
-        var strTime = hours + ':' + minutes + ' ' + ampm;
-        return strTime;
-      }
 
-    
+
     return (
         <div className="appointment-cards-container">
             {/* <h1>Appointments</h1> */}
@@ -224,6 +221,7 @@ const AppointmentsComponent = ({state, setState}) => {
                                                 <div className="appointment-row">
                                                     {appointment.status === 'Cancelled' ? '' :
                                                     (<><h6 className="appointments-label">Status:</h6>
+                                                    <Button style={{background: '#5aafc4', border: 'none'}} onClick={() => handleSelectStatus('view', appointment)}>View</Button>
                                                     <h5 className="appointments-detail" style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
                                                         {appointment.status === 'Confirmed' || appointment.status === 'Rescheduled' ? '' : <Button style={{background: '#02B602', border: 'none'}} onClick={() => handleSelectStatus('approve', appointment)}>Approve</Button>}
                                                         <Button style={{background: '#FF0000', border: 'none'}} onClick={() => handleSelectStatus('cancel', appointment)}>Cancel</Button> 
@@ -249,6 +247,7 @@ const AppointmentsComponent = ({state, setState}) => {
                                                 {appointment.status === 'Cancelled' ? '' :
                                                 (<><h6 className="appointments-label">Status:</h6>
                                                 <h5 className="appointments-detail" style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                                                    <Button style={{background: '#5aafc4', border: 'none'}} onClick={() => handleSelectStatus('view', appointment)}>View</Button>|
                                                     {appointment.status === 'Confirmed' || appointment.status === 'Rescheduled' ? '' : <Button style={{background: '#02B602', border: 'none'}} onClick={() => handleSelectStatus('approve', appointment)}>Approve</Button>}
                                                     <Button style={{background: '#FF0000', border: 'none'}} onClick={() => handleSelectStatus('cancel', appointment)}>Cancel</Button> 
                                                     {appointment.status === 'Rescheduled' ? '' : <> | <Button style={{background: 'purple', border: 'none'}} onClick={() => handleSelectStatus('reschedule', appointment)}>Reschedule</Button></>}
