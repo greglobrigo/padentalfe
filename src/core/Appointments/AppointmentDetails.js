@@ -28,6 +28,40 @@ const AppointmentDetailsComponent = ({appointment, setValidation, state, setStat
     }
 
     
+    let time = '';
+    let hrs = '';
+
+    if(appointment.preferred_time.substring(0, 2) === '13') {
+        hrs = '1'
+    } else if (appointment.preferred_time.substring(0, 2) === '14') {
+        hrs = '2'
+    } else if (appointment.preferred_time.substring(0, 2) === '15') {
+        hrs = '3'
+    } else if (appointment.preferred_time.substring(0, 2) === '16') {
+        hrs = '4'
+    } else if (appointment.preferred_time.substring(0, 2) === '17') {
+        hrs = '5'
+    } else if (appointment.preferred_time.substring(0, 2) === '18') {
+        hrs = '6'
+    } else if (appointment.preferred_time.substring(0, 2) === '19') {
+        hrs = '7'
+    } else if (appointment.preferred_time.substring(0, 2) === '20') {
+        hrs = '8'
+    } else if (appointment.preferred_time.substring(0, 2) === '21') {
+        hrs = '9'
+    } else if (appointment.preferred_time.substring(0, 2) === '22') {
+        hrs = '10'
+    } else if (appointment.preferred_time.substring(0, 2) === '23') {
+        hrs = '11'
+    } 
+
+    if(appointment.preferred_time.substring(0, 2) >= 1 && appointment.preferred_time.substring(0, 2) < 12) {
+        time = `${appointment.preferred_time.substring(0, 2)}:${appointment.preferred_time.substring(3, 5)} AM`
+    } else {
+        time = `${hrs}:${appointment.preferred_time.substring(3, 5)} PM`
+    }
+
+
 
     return <form onSubmit={handleSubmit} >
     <div className="menu-title-container">
@@ -75,7 +109,7 @@ const AppointmentDetailsComponent = ({appointment, setValidation, state, setStat
                         padding: '0.375rem 0.75rem', 
                         borderRadius: '0.25rem', 
                         backgroundColor: '#e9ecef' 
-                    }}>{appointment.preferred_time}</div>
+                    }}>{time}</div>
             </div>
         </div>
         <div className="row-form">
