@@ -17,8 +17,7 @@ const DetailsComponent = () => {
                     <Col md={6}>
                         <div className="details-first-col">
                             <img src={DentalLogo} alt="logo" className="details-dental-logo" />
-                            <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
-
+                            <br></br><br></br>
                             <div className="company-details-container">
                                 <div className="details-main">
                                     <div className="details-icon">
@@ -60,9 +59,9 @@ const DetailsComponent = () => {
                         </div>
                     </Col>
                     <Col md={6} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-                        <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
-                        {isAuthenticated().admin_email ? <Link to="/appointments"><Button variant="primary" className="button">My Appointments</Button></Link>
-                        : <Link to="/appointments/new"><Button variant="primary" className="button">Make an Appointment</Button></Link> }
+                        <h1 className="title" style={{paddingBottom: '25px'}}>Book Now!</h1>
+                        {isAuthenticated().admin_email ? <Link to="/appointments"><div className="button-container"><Button variant="primary" className="button">My Appointments</Button></div></Link>
+                        : <Link to="/appointments/new"><div className="button-container"><Button variant="primary" className="button">Make an Appointment</Button></div></Link> }
                         <Row>
                             <Col>
                                 <h6 className="details-title">Quick Links</h6>

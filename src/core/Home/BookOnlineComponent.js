@@ -12,15 +12,14 @@ const BookOnlineComponent = () => {
                 <Row>
                     <Col className="home-first-section" xs={12} lg={6}>
                         <h1 className="title">Your Dental Healthcare partner, in the heart of Albay.</h1>
-                        <p className="sub-title" style={{fontSize: '1.5rem', fontWeight: 'bold'}}>Book Online</p>
-                        {isAuthenticated().admin_email ? <Link to="/appointments"><Button variant="primary" className="button">My Appointments</Button></Link>
-                        : <Link to="/appointments/new"><Button variant="primary" className="button">Make an Appointment</Button></Link>}
-                        <p className="sub-title">Register and fill up an appointment form online.</p>
-
+                        <p className="sub-title" style={{fontSize: '1.5rem', fontWeight: 'bold'}}></p>
+                        <p className="sub-title sub-title-home">Booking appointments made easy!<br></br>You may register and fill up an appointment form online.</p>                        
+                        {isAuthenticated().admin_email ? <Link to="/appointments"><div className="button-container"><Button variant="primary" className="button">My Appointments</Button></div></Link>
+                        : <Link to="/appointments/new"><div className="button-container"><Button variant="primary" className="button">Make an Appointment</Button></div></Link>}                       
                         <div className="home-card-container">
                             <Card className="header-cards" style={{ width: '18rem' }}>
                                 <Card.Title className="card-title">Our Services</Card.Title>
-                                <Card.Text className="card-subtitle">Lorem ipsum dolor sit amet, consectetur</Card.Text>
+                                <Card.Text className="card-subtitle">We offer a wide array of dental services from general checkups, tooth extraction to tooth restoration.</Card.Text>
                                 <div className="home-card-arrow-btn pulse" style={{position: 'absolute'}}>
                                     <Link to="/services"><IoIosArrowDroprightCircle style={{color: 'rgba(78, 180, 81, 1)'}}/></Link>
                                 </div>

@@ -94,7 +94,7 @@ const ValidationModalComponent = (props) => {
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
-                    {title === 'Reschedule' ? '' : <Button onClick={() => handleConfirm(title, appointment?.id)} style={{background: confirmButtonClr}}>Confirm</Button>}
+                    {title === 'Reschedule' || title === 'View Details' ? '' : <Button onClick={() => handleConfirm(title, appointment?.id)} style={{background: confirmButtonClr}}>Confirm</Button>}
                     <Button onClick={() => setValidation({modalShow: false})} variant="secondary">Cancel</Button>
                 </Modal.Footer>
             </div>

@@ -75,7 +75,7 @@ const AppointmentDetailsComponent = ({appointment, setValidation, state, setStat
                         padding: '0.375rem 0.75rem', 
                         borderRadius: '0.25rem', 
                         backgroundColor: '#e9ecef' 
-                    }}><Moment format='LT'>{appointment.preferred_time}</Moment></div>
+                    }}>{appointment.preferred_time}</div>
             </div>
         </div>
         <div className="row-form">

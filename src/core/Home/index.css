@@ -96,7 +96,16 @@
   margin: 10px 0px 40px 0px;
   font-family: "Open Sans", Sans-serif;
   font-size: 17px;
-  color: #52575d;
+  color: #52575d; 
+}
+
+.sub-title-home {
+  font-weight: bold;
+  font-style: italic
+}
+
+.button-container {
+  padding-bottom: 25px;
 }
 .button {
   font-size: 18px !important;
@@ -157,7 +166,7 @@
   align-items: center;
 }
 @media (min-width: 768px) {
-  .home-card-container {
+  .home-card-container {    
     gap: unset;
     align-items: unset;
   }

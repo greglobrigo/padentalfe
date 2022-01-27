@@ -15,7 +15,7 @@ const Services = () => {
                 <Col lg={4}>
                     <h1 className="profession-clinic-subtitle">Services</h1>
                     {/* <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p> */}
-                    <Link to="/services"><Button variant="primary" className="button">more services</Button></Link>
+                    <Link to="/services"><div className="button-container"><Button variant="primary" className="button">more services</Button></div></Link>
                     <div className="services-card-container" style={{backgroundImage: `url(${Doctor_1})`}}>
                         <div className="services-second-bg-overlay">
                             <h5 className="services-title">Dental Consultation</h5>

@@ -12,8 +12,8 @@ const ProfessionClinic = () => {
             </div>
             <Row style={{display: 'flex', alignItems: 'center'}}>
                 <Col md={4}>
-                    <h4 className="profession-clinic-col-title">Teeth are Always in Fashion</h4>
-                    <p className="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in diam accumsan, aliquet justo mattis, posuere ex. Aliquam erat volutpat. Vivamus efficitur libero vel lacus ultricies, sed euismod justo consequat.</p>
+                    <h4 className="profession-clinic-col-title">Every smile deserves a quality service.</h4>
+                    <p className="sub-title">Our clinic provides every patient with the highest quality of dental care. Using high quality materials, professional and safe practices so that everyone can wear a beautiful smile.</p>
                 </Col>
                 <Col md={4} className="profession-clinic-mid-col">
                     <img src={Profession_clinic_1} alt="header-img" className="profession-clinic-img mid" />
