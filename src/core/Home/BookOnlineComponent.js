@@ -35,7 +35,7 @@ const BookOnlineComponent = () => {
                     </Col>
                     <Col xs={12} lg={6}>
                         <div className="home-image-container">
-                            <img src={DoctorImage} alt="header-img" className="image-header-style" />
+                            <img src={DoctorImage} alt="header-img" className="image-header-style"  loading="eager"/>
                         </div>
                     </Col>
                 </Row>

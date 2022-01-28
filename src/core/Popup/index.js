@@ -23,7 +23,7 @@ const PopupComponent = () => {
             </Modal.Header>
             <Modal.Body>
               <div style={{textAlign: 'center', background: 'rgba(78, 180, 81, 0.3)', padding: '1rem'}}>
-                <img src={info_form} alt="dental-clinic" className="logo" loading="eager"/>
+                <img src={info_form} alt="dental-clinic" className="logo" loading="eager" loading="eager"/>
                 <h5><strong><i>1. Fill up initial information sheet</i></strong></h5>
                 <p>
                   Click the 'Make an Appointment' button and then fill up the form, then click 'Submit'. We encourage you to fill the items with all honesty for the sake of everyone's safety.

@@ -32,42 +32,42 @@ const ClinicProtocol = () => {
                 >
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">1</div>
-                            <img src={Clinic_protocol_1} alt="header-img" className="clinic-protocol-img" />
+                            <img src={Clinic_protocol_1} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
                         <div className="clinic-protocol-step-title">Disinfect Shoes</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">2</div>
-                            <img src={Clinic_protocol_2} alt="header-img" className="clinic-protocol-img" />
+                            <img src={Clinic_protocol_2} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
                         <div className="clinic-protocol-step-title">Temperature Check & Disinfect Hands</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">3</div>
-                            <img src={Clinic_protocol_3} alt="header-img" className="clinic-protocol-img" />
+                            <img src={Clinic_protocol_3} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
                         <div className="clinic-protocol-step-title">Wear Show Cover</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">4</div>
-                            <img src={Clinic_protocol_4} alt="header-img" className="clinic-protocol-img" />
+                            <img src={Clinic_protocol_4} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
                         <div className="clinic-protocol-step-title">Fix Signatures on Forms</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">5</div>
-                            <img src={Clinic_protocol_5} alt="header-img" className="clinic-protocol-img" />
+                            <img src={Clinic_protocol_5} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
                         <div className="clinic-protocol-step-title">Place stuff on sealed container</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">6</div>
-                            <img src={Clinic_protocol_6} alt="header-img" className="clinic-protocol-img" />
+                            <img src={Clinic_protocol_6} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
                         <div className="clinic-protocol-step-title">Pre-Treatment</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">7</div>
-                            <img src={Clinic_protocol_7} alt="header-img" className="clinic-protocol-img" />
+                            <img src={Clinic_protocol_7} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
                         <div className="clinic-protocol-step-title">Treatment Procedure</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">8</div>
-                            <img src={Clinic_protocol_8} alt="header-img" className="clinic-protocol-img" />
+                            <img src={Clinic_protocol_8} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
                         <div className="clinic-protocol-step-title">Contactless Payment</div>
                     </div>
                 </Marquee>

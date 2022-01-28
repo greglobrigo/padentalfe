@@ -16,7 +16,7 @@ const DetailsComponent = () => {
                 <Row>
                     <Col md={6}>
                         <div className="details-first-col">
-                            <img src={DentalLogo} alt="logo" className="details-dental-logo" />
+                            <img src={DentalLogo} alt="logo" className="details-dental-logo"  loading="eager"/>
                             <br></br><br></br>
                             <div className="company-details-container">
                                 <div className="details-main">

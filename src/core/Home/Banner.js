@@ -72,49 +72,49 @@ const Banner = () => {
             {/* <div className="style-overlay"></div> */}
             <Slider {...settings}>
                 <div>
-                    <img src={banner_1} alt="header-img" className="clinic-img" />
+                    <img src={banner_1} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_2} alt="header-img" className="clinic-img" />
+                    <img src={banner_2} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_3} alt="header-img" className="clinic-img" />
+                    <img src={banner_3} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_4} alt="header-img" className="clinic-img" />
+                    <img src={banner_4} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_5} alt="header-img" className="clinic-img" />
+                    <img src={banner_5} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_6} alt="header-img" className="clinic-img" />
+                    <img src={banner_6} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_7} alt="header-img" className="clinic-img" />
+                    <img src={banner_7} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_8} alt="header-img" className="clinic-img" />
+                    <img src={banner_8} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_9} alt="header-img" className="clinic-img" />
+                    <img src={banner_9} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_10} alt="header-img" className="clinic-img" />
+                    <img src={banner_10} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_11} alt="header-img" className="clinic-img" />
+                    <img src={banner_11} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_12} alt="header-img" className="clinic-img" />
+                    <img src={banner_12} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_13} alt="header-img" className="clinic-img" />
+                    <img src={banner_13} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_14} alt="header-img" className="clinic-img" />
+                    <img src={banner_14} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
                 <div>
-                    <img src={banner_15} alt="header-img" className="clinic-img" />
+                    <img src={banner_15} alt="header-img" className="clinic-img"  loading="eager"/>
                 </div>
             </Slider>
             

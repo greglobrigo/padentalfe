@@ -21,7 +21,7 @@ const ServicesComponent = () => {
           return (
             <div className="services-item">
               <div>
-                <img src={DentalLogo} alt="dental-clinic" className="logo services-img"/>
+                <img src={DentalLogo} alt="dental-clinic" className="logo services-img" loading="eager"/>
               </div>
               <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
                 <h3 style={{fontWeight: 'bold', marginBottom: 'unset'}} >{service.title}</h3>

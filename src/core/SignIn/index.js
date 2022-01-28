@@ -68,7 +68,7 @@ const SignInComponent = () => {
 
             {state.loading &&
                 <div className="loading-container">
-                    <img src={Gif_loading} alt="loading" style={{width: '100%'}}/>
+                    <img src={Gif_loading} alt="loading" style={{width: '100%'}} loading="eager"/>
                     <h6 style={{fontWeight: 'bold'}}>Loading</h6>
                 </div>
             }

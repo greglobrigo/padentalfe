@@ -109,7 +109,7 @@ const AppointmentsComponent = (props) => {
             <div className="container" style={{paddingTop: '9.1rem'}}>
                 {state.loading || !state.appointments || !state.approvedAppointments || !state.historyAppointments?
                     <div className="loading-container">
-                        <img src={Gif_loading} alt="loading" style={{width: '100%'}}/>
+                        <img src={Gif_loading} alt="loading" style={{width: '100%'}}  loading="eager"/>
                         <h6 style={{fontWeight: 'bold'}}>Loading</h6>
                     </div>
                     :

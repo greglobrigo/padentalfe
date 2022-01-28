@@ -16,10 +16,10 @@ const ProfessionClinic = () => {
                     <p className="sub-title">Our clinic provides every patient with the highest quality of dental care. Using high quality materials, professional and safe practices so that everyone can wear a beautiful smile.</p>
                 </Col>
                 <Col md={4} className="profession-clinic-mid-col">
-                    <img src={Profession_clinic_1} alt="header-img" className="profession-clinic-img mid" />
+                    <img src={Profession_clinic_1} alt="header-img" className="profession-clinic-img mid"  loading="eager"/>
                 </Col>
                 <Col md={4}>
-                    <img src={Profession_clinic_2} alt="header-img" className="profession-clinic-img" />
+                    <img src={Profession_clinic_2} alt="header-img" className="profession-clinic-img"  loading="eager"/>
                 </Col>
             </Row>
         </div>
