@@ -46,7 +46,7 @@ const Menu = ({history}) => {
             <Navbar bg="light" expand="md">
                 <Container fluid style={{gap: '0.3rem'}}>
                     <Navbar.Brand href="/">
-                        <img src={DentalLogo} alt="dental-clinic" className="logo"/>
+                        <img src={DentalLogo} alt="dental-clinic" className="logo" loading="eager"/>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="hamburger-menu" style={{marginRight: "0.5rem"}} />
                     <Navbar.Collapse id="basic-navbar-nav">
