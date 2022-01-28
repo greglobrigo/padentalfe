@@ -3,7 +3,7 @@ import axios from 'axios';
 export const signup = async(user, setState) => {
     await axios({
         method: 'POST',
-        url: `${process.env.REACT_APP_API_URL}/api/v1/patients/registrations`,
+        url: `https://padental.herokuapp.com/api/v1/patients/registrations`,
         data: user,
         headers: {}, 
     })
@@ -22,7 +22,7 @@ export const signup = async(user, setState) => {
 export const signin = async(user, state, setState) => {
     await axios({
         method: 'POST',
-        url: `${process.env.REACT_APP_API_URL}/api/v1/patients/sessions`,
+        url: `https://padental.herokuapp.com/api/v1/patients/sessions`,
         data: user,
         headers: {}, 
     })
@@ -64,7 +64,7 @@ export const isAuthenticated = () => {
 export const signout = (next) => {
     if(typeof window !== 'undefined') localStorage.removeItem('jwt')
     next()
-    // return fetch(`${process.env.REACT_APP_API_URL}/signout`, {
+    // return fetch(`https://padental.herokuapp.com/signout`, {
     //     method: "GET"
     // })
     // .then(response => {
@@ -78,7 +78,7 @@ export const signout = (next) => {
 export const adminSignin = async(user, state, setState) => {
     await axios({
         method: 'POST',
-        url: `${process.env.REACT_APP_API_URL}/api/v1/adminsessions`,
+        url: `https://padental.herokuapp.com/api/v1/adminsessions`,
         data: user,
         headers: {}, 
     })

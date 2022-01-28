@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const appointmentList = (value, user) => {
     if(isAuthenticated().admin_email) {
-        return fetch(`${process.env.REACT_APP_API_URL}/api/v1/adminappointments?dateRange=${value}`, {
+        return fetch(`https://padental.herokuapp.com/api/v1/adminappointments?dateRange=${value}`, {
             method: "GET",
         })
         .then(response => {
@@ -13,7 +13,7 @@ export const appointmentList = (value, user) => {
             console.log(err)
         })
     } else if(isAuthenticated().patient_email) {
-        return fetch(`${process.env.REACT_APP_API_URL}/api/v1/patients/appointments?dateRange=${value}`, {
+        return fetch(`https://padental.herokuapp.com/api/v1/patients/appointments?dateRange=${value}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ export const appointmentList = (value, user) => {
 export const approvedAppointmentList = (value, state, setState) => {
     console.log({value})
     setState({...state, loading: true})
-    return fetch(`${process.env.REACT_APP_API_URL}/api/v1/adminappointments/approved?dateRange=${value}`, {
+    return fetch(`https://padental.herokuapp.com/api/v1/adminappointments/approved?dateRange=${value}`, {
         method: "GET",
     })
     .then(response => {
@@ -54,7 +54,7 @@ export const approvedAppointmentList = (value, state, setState) => {
 
 
 export const appointmentHistoryList = (value, user) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/v1/patients/appointments?dateRange=${value}`, {
+    return fetch(`https://padental.herokuapp.com/api/v1/patients/appointments?dateRange=${value}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ export const bookAppointment = async(data, user, state, setState, notifyWarning,
     setState({...state, loading: true})
     await axios({
         method: 'POST',
-        url: `${process.env.REACT_APP_API_URL}/api/v1/patients/appointments`,
+        url: `https://padental.herokuapp.com/api/v1/patients/appointments`,
         data: data,
         headers: {
             'userToken': user.userToken,
@@ -131,7 +131,7 @@ export const updateAppointmentStatus = async(id, status, state, setState) => {
     setState({...state, loading: true})
     await axios({
         method: 'PATCH',
-        url: `${process.env.REACT_APP_API_URL}/api/v1/adminappointments?appointmentId=${id}&appointmentStatus=${status}`,
+        url: `https://padental.herokuapp.com/api/v1/adminappointments?appointmentId=${id}&appointmentStatus=${status}`,
     })
     .then(response => {
         return response
@@ -145,7 +145,7 @@ export const addComment = async(id, value, state, setState) => {
     setState({...state, loading: true})
     await axios({
         method: 'PATCH',
-        url: `${process.env.REACT_APP_API_URL}/api/v1/adminappointments/reschedule?appointmentId=${id}&comment=${value}`,
+        url: `https://padental.herokuapp.com/api/v1/adminappointments/reschedule?appointmentId=${id}&comment=${value}`,
     })
     .then(response => {
         return response
