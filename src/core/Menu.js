@@ -70,7 +70,7 @@ const Menu = ({history}) => {
                         :
                         <>
                             <div className="accounts">
-                                <Link className="nav-link" style={isActive(history, '/signin')} to="/signin">Sign In</Link>
+                                <Link className="nav-link" style={isActive(history, '/signin')} to="/signin">Sign Insssss</Link>
                                 <Link className="nav-link" style={isActive(history, '/signup')} to="/signup">Register</Link>
                             </div>
                         </> 
