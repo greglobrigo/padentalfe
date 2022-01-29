@@ -12,7 +12,7 @@ export const signup = async(user, setState) => {
             return (
                setState({error: response.data.message})
             )
-        } else return setState({user: response.data, open: true})
+        } else return setState({user: response.data, loading: false, open: true})
     })
     .catch(err => {
         console.log(`Signup Error:`, err)
