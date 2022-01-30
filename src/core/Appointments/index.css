@@ -56,6 +56,10 @@
     .submit-button {
         width: unset;
     }
+    .submit-btn-container {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .item-form {
@@ -215,3 +219,4 @@ input[type="radio"] {
     width: 100%;
     gap: 1rem;
 }
+

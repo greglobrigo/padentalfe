@@ -129,7 +129,7 @@ const NewAppointmentComponent = () => {
             <form onSubmit={handleSubmit} >
                 <div className="menu-title-container">
                     <h1 className="title menu-title" >New Appointment</h1>
-                    <Link to="#" ><Button className="button submit-button" type="submit" variant={`primary`} onClick={(e) => handleSubmit(e)}>Submit</Button></Link>
+                    {/* <Link to="#" ><Button className="button submit-button" type="submit" variant={`primary`} onClick={(e) => handleSubmit(e)}>Submit</Button></Link> */}
                 </div>    
                     <div className="row-form">
                         <div className="item-form">
@@ -404,7 +404,8 @@ const NewAppointmentComponent = () => {
                         </div>
                     </div>
                 <br />
-                
+                <br />
+                <div className="submit-btn-container"><Link to="#" ><Button className="button submit-button" type="submit" variant={`primary`} onClick={(e) => handleSubmit(e)}>Submit</Button></Link></div>
             </form>
         </div>
     )
