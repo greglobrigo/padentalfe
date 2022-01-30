@@ -56,7 +56,7 @@ const SignInComponent = () => {
                 flexDirection: 'column', 
                 paddingTop: '6.1rem', 
                 width: '15rem', 
-                height: 'calc(100vh - 6rem)'
+                // height: 'calc(100vh - 6rem)'
             }}>
 
             <h1>{location.pathname === '/admin' ? 'Admin' : ''}</h1>

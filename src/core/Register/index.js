@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import {signup} from '../../auth'
 import {Link} from 'react-router-dom'
-import {Button} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 import Gif_loading from '../../images/gif_loading.gif'
 
 
@@ -35,6 +35,8 @@ const RegisterComponent = () => {
         }
         else if(user.password !== user.password_confirmation) {
             return setState({error: `Password do not match. Please Try again!`})
+        } else if (user.password.length < 6) {
+            return setState({error: `Password must be 6 characters and above. Please Try again!`})
         }
         else {signup(user, setState)}
     }
@@ -77,15 +79,18 @@ const RegisterComponent = () => {
             <form onSubmit={handleSubmit} >
                 <div className="form-group">
                     <label className="text-muted">Email</label>
-                    <input type="email" className="form-control" ref={email}/>
+                    <input type="email" className="form-control" ref={email} placeholder="Enter email"/>
+                    <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                    </Form.Text>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Password</label>
-                    <input type={state.show ? `text` : `password`} className="form-control" ref={password}/>
+                    <input type={state.show ? `text` : `password`} className="form-control" ref={password} placeholder="Password"/>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Confirm Password</label>
-                    <input type={state.show ? `text` : `password`} className="form-control" ref={password_confirmation}/>
+                    <input type={state.show ? `text` : `password`} className="form-control" ref={password_confirmation} placeholder="Confirm password"/>
                 </div>
 
                 <Button className="button submit-button mt-3" type="submit" variant={`primary`} >Submit</Button>
