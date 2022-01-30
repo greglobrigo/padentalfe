@@ -87,6 +87,9 @@ const RegisterComponent = () => {
                 <div className="form-group">
                     <label className="text-muted">Password</label>
                     <input type={state.show ? `text` : `password`} className="form-control" ref={password} placeholder="Password"/>
+                    <Form.Text className="text-muted">
+                        Password must be 6 characters and above.
+                    </Form.Text>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Confirm Password</label>
