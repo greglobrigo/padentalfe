@@ -43,7 +43,7 @@ const ClinicProtocol = () => {
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">3</div>
                             <img src={Clinic_protocol_3} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
-                        <div className="clinic-protocol-step-title">Wear Show Cover</div>
+                        <div className="clinic-protocol-step-title">Wear Shoe Cover</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">4</div>
@@ -58,7 +58,7 @@ const ClinicProtocol = () => {
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">6</div>
                             <img src={Clinic_protocol_6} alt="header-img" className="clinic-protocol-img"  loading="eager"/>
-                        <div className="clinic-protocol-step-title">Pre-Treatment</div>
+                        <div className="clinic-protocol-step-title">Pre-Treatment Mouthrinse</div>
                     </div>
                     <div className="clinic-protocol-step-container">
                         <div className="clinic-protocol-step-num">7</div>
