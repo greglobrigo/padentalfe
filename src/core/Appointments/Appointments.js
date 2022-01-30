@@ -7,6 +7,7 @@ import ValidationModalComponent from '../../core/ValidationModal'
 import {appointmentList} from '../api/api'
 import {isAuthenticated} from '../../auth'
 import moment from 'moment'
+import Empty_data from '../../images/empty_data.png'
 
 
 
@@ -170,8 +171,11 @@ const AppointmentsComponent = ({state, setState}) => {
                         )
                     })
                 } */}
-
-                {filteredItems.map((appointment, index) => {
+                {filteredItems.length === 0 ? 
+                    <div className="loading-container no-data-found-container" >
+                        <img src={Empty_data} alt="Empty Data" style={{width: '10%'}}  loading="eager"/>
+                        <h1 style={{fontWeight: 'bold'}}>No Data Found</h1>
+                    </div> : filteredItems.map((appointment, index) => {
                     let time = '';
                     let hrs = '';
 

@@ -206,3 +206,12 @@ input[type="radio"] {
     word-break: break-all;
 }
 
+
+.no-data-found-container {
+    background: unset !important;
+    flex-direction: unset !important;
+    padding: unset !important;
+    height: unset !important;
+    width: 100%;
+    gap: 1rem;
+}
