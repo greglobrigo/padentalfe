@@ -148,11 +148,11 @@ const NewAppointmentComponent = () => {
                     
                     <div className="row-form">
                         <div className="item-form">
-                            <h6>Address:</h6>
+                            <h6>Complete Address:</h6>
                             <Form.Control className="appointment-form-label" type="text" placeholder={``} value={state.address} onChange={(e) => setState({...state, address: e.target.value})} required />
                         </div>
                         <div className="item-form">
-                            <h6>Work (if applicable / "NA" if non):</h6>
+                            <h6>Work (if applicable / "NA" if none):</h6>
                             <Form.Control className="appointment-form-label" type="text" placeholder={``} value={state.work} onChange={(e) => setState({...state, work: e.target.value})} required />
                         </div>
                     </div>
@@ -168,7 +168,7 @@ const NewAppointmentComponent = () => {
                     </div>
                     <div className="row-form">
                         <div className="item-form">
-                            <h6>Note:</h6>
+                            <h6>Note (Reason for appointment, what treatment procedure to do?):</h6>
                             <Form.Control as="textarea" maxLength="120" className="appointment-form-label" type="text" placeholder={``} value={state.note} onChange={(e) => setState({...state, note: e.target.value})} required style={{ height: 'auto' }} />
                         </div>
                     </div>
